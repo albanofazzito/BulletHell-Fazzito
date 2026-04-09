@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cd88up2tfxlht"]
+
+[ext_resource type="Texture2D" uid="uid://buxceex40qct7" path="res://Sprites/MovimientoRaptor.png" id="1_3801x"]
+[ext_resource type="Script" uid="uid://ckbxf42x4p8o7" path="res://Scripts/MovimientoRaptor.gd" id="1_ekuly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekuly"]
+atlas = ExtResource("1_3801x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtbm7"]
+atlas = ExtResource("1_3801x")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ons4s"]
+atlas = ExtResource("1_3801x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3k6i"]
+atlas = ExtResource("1_3801x")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_000v4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekuly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtbm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ons4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3k6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vle45"]
+radius = 7.0
+height = 16.0
+
+[node name="Node2D" type="Node2D" unique_id=1651068310]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1057495583 groups=["Jugador"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_ekuly")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=7855284]
+sprite_frames = SubResource("SpriteFrames_000v4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2076511253]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_vle45")
