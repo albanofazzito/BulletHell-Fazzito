@@ -10,10 +10,9 @@ func _physics_process(delta):
 	if direccion.x>0:
 		$AnimatedSprite2D.play()
 		$AnimatedSprite2D.flip_h = true
-	else:
+	if direccion.x<0:
 		$AnimatedSprite2D.play()
 		$AnimatedSprite2D.flip_h = false
-		
 	if direccion==Vector2.ZERO:
 		$AnimatedSprite2D.pause()
 	velocity = direccion * velocidad * delta * 100
@@ -26,14 +25,16 @@ func recibirDaño():
 	if invencible==false:
 		AutoLoad.vidas-=1
 		invencible=true
-		$TimerParpadeo.start
+		$TimerParpadeo.start()
 		$Timer.start()
+		$AnimatedSprite2D.visible=true
 
 
-
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	invencible=false
 
 
-func _on_timer_parpadeo_timeout() -> void:
-	$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+func _on_timer_parpadeo_timeout():
+	if invencible==true:
+		$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+		$TimerParpadeo.start()

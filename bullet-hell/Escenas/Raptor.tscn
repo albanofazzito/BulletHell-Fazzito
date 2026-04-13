@@ -59,8 +59,10 @@ skew = -0.5235988
 shape = SubResource("CapsuleShape2D_vle45")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=345664223]
+wait_time = 1.5
 
 [node name="TimerParpadeo" type="Timer" parent="CharacterBody2D" unique_id=1958866441]
+wait_time = 0.1
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/TimerParpadeo" to="CharacterBody2D" method="_on_timer_parpadeo_timeout"]

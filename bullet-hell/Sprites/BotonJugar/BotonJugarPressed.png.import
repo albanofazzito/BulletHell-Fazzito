@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5ccjhqwhuxu7"
-path="res://.godot/imported/StegoSheet.png-906fd99a4634ac2f1d3a56d4262a372b.ctex"
+uid="uid://mv03du28abmh"
+path="res://.godot/imported/BotonJugarPressed.png-0184f534c74be6f54dd4d51e60cebe11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/StegoSheet.png"
-dest_files=["res://.godot/imported/StegoSheet.png-906fd99a4634ac2f1d3a56d4262a372b.ctex"]
+source_file="res://Sprites/BotonJugar/BotonJugarPressed.png"
+dest_files=["res://.godot/imported/BotonJugarPressed.png-0184f534c74be6f54dd4d51e60cebe11.ctex"]
 
 [params]
 

@@ -1,4 +1,8 @@
-res://Escenas/Raptor.tscn
 res://Scripts/MovimientoRaptor.gd
-res://Scripts/Stego.gd
+res://Escenas/Raptor.tscn
+res://Escenas/Juego.tscn
+res://Escenas/Stego.tscn
 res://Escenas/MenuPrincipal.tscn
+res://Escenas/BotonJugar.tscn
+res://Scripts/boton_jugar.gd
+res://Escenas/Espina.tscn

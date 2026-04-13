@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dct8p8kx71lo6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_68bok"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3xt2"]
+radius = 19.0
+height = 56.0
+
+[node name="Node2D" type="Node2D" unique_id=148863633]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1315259201]
+position = Vector2(5.9604645e-08, -4.172325e-07)
+scale = Vector2(47.499996, 41.499996)
+texture = SubResource("PlaceholderTexture2D_68bok")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=211916426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2044672829]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a3xt2")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bq4331rcxrje4"]
+
+[ext_resource type="Texture2D" uid="uid://jjq7etyc82nw" path="res://Sprites/BotonJugar/BotonJugarNormal.png" id="1_07h0h"]
+[ext_resource type="Script" uid="uid://cmhahqqhi4sx2" path="res://Scripts/boton_jugar.gd" id="1_lw125"]
+[ext_resource type="Texture2D" uid="uid://bxmlwgd8v7gnf" path="res://Sprites/BotonJugar/BotonJugarHover.png" id="2_wj5c1"]
+[ext_resource type="Texture2D" uid="uid://mv03du28abmh" path="res://Sprites/BotonJugar/BotonJugarPressed.png" id="3_mk01g"]
+
+[node name="Control" type="Control" unique_id=2040401451]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1078.0
+offset_bottom = -626.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lw125")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=873854937]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 22.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_07h0h")
+texture_pressed = ExtResource("3_mk01g")
+texture_hover = ExtResource("2_wj5c1")
+ignore_texture_size = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
