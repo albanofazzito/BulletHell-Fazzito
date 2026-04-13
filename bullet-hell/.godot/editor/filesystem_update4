@@ -1,0 +1,4 @@
+res://Escenas/Raptor.tscn
+res://Scripts/MovimientoRaptor.gd
+res://Scripts/Stego.gd
+res://Escenas/MenuPrincipal.tscn

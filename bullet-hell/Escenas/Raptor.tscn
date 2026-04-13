@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vle45"]
-radius = 7.0
-height = 16.0
+radius = 5.281766
+height = 14.626205
 
 [node name="Node2D" type="Node2D" unique_id=1651068310]
 
@@ -54,5 +54,13 @@ sprite_frames = SubResource("SpriteFrames_000v4")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2076511253]
-position = Vector2(0, -1)
+position = Vector2(-0.33333325, -1.3333333)
+skew = -0.5235988
 shape = SubResource("CapsuleShape2D_vle45")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=345664223]
+
+[node name="TimerParpadeo" type="Timer" parent="CharacterBody2D" unique_id=1958866441]
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/TimerParpadeo" to="CharacterBody2D" method="_on_timer_parpadeo_timeout"]

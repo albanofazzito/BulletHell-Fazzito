@@ -36,5 +36,4 @@ func _on_animated_sprite_2d_frame_changed():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Jugador"):
-		AutoLoad.vidas-=1
-		print("hola")
+		body.recibirDaño()

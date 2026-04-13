@@ -1,0 +1,15 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1776081855
+icon.svg::CompressedTexture2D::3694863713709689211::1776081804::1776081856::1::::<><><>0<>0<>7b961a4ceefed4c4f9698986fa43d96c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Escenas/::1776081804
+Juego.tscn::PackedScene::4693973543737026498::1776081804::0::1::::<><><>0<>0<><>::uid://cd88up2tfxlht::::res://Escenas/Raptor.tscn<>uid://dl2ryofaevai6::::res://Scripts/Principal.gd<>uid://cwxne5qalbkiy::::res://Escenas/Stego.tscn
+Raptor.tscn::PackedScene::5053572571254506197::1776081804::0::1::::<><><>0<>0<><>::uid://buxceex40qct7::::res://Sprites/MovimientoRaptor.png<>uid://ckbxf42x4p8o7::::res://Scripts/MovimientoRaptor.gd
+Stego.tscn::PackedScene::6365274680279998856::1776081804::0::1::::<><><>0<>0<><>::uid://b5ccjhqwhuxu7::::res://Sprites/StegoSheet.png<>uid://c08l5vmbkgp3r::::res://Scripts/Stego.gd
+::res://Scripts/::1776081804
+AutoLoad.gd::GDScript::7606383565194750143::1776081804::0::1::::<>Node<><>0<>0<><>::
+MovimientoRaptor.gd::GDScript::5478201167295009000::1776081804::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Principal.gd::GDScript::7988153321445115863::1776081804::0::1::::<>Node2D<><>0<>0<><>::
+Stego.gd::GDScript::6596409506545621237::1776081804::0::1::::<>Node2D<><>0<>0<><>::
+::res://Sprites/::1776081804
+MovimientoRaptor.png::CompressedTexture2D::3837807068933845790::1776081804::1776081856::1::::<><><>0<>0<>1ce2eabc37e61d8df0708be0ddbc52ff<>res://.godot/imported/MovimientoRaptor.png-7c0726bd7876cc128a37dc81d77075f7.ctex::
+StegoSheet.png::CompressedTexture2D::4496352647862937844::1776081804::1776081856::1::::<><><>0<>0<>344c1bd0d5233e42a6a181ce6c41f0ce<>res://.godot/imported/StegoSheet.png-906fd99a4634ac2f1d3a56d4262a372b.ctex::
