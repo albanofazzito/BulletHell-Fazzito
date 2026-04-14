@@ -2,11 +2,13 @@ extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
+	$TimerDisparoArriba.start(randf_range(3,6))
+	$TimerDisparoMedio.start(randf_range(4,7))
+	$TimerDisparoAbajo.start(randf_range(3,6))
 
 func _on_animated_sprite_2d_frame_changed():
 	if $AnimatedSprite2D.frame==0 :
 		$Area2D/ColaIzquierda.disabled=false
-		disparar()
 	else:
 		$Area2D/ColaIzquierda.disabled=true
 	if $AnimatedSprite2D.frame==1 or $AnimatedSprite2D.frame==11:
@@ -39,12 +41,60 @@ func _on_animated_sprite_2d_frame_changed():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Jugador"):
 		body.recibirDaño()
-		
-func disparar():
+
+
+	
+
+
+
+func _on_timer_disparo_medio_timeout() -> void:
 	var espina=escenaEspina.instantiate()
 	get_parent().add_child(espina)
 	espina.global_position= $Area2D/StegoEspinaCentral.global_position
+
 	if global_position.x<500:
-		espina.inicializar(1,$Area2D/StegoEspinaCentral.texture)
+		espina.global_position.x+= 100
+		espina.inicializar(-1,$EspinaMedio,1)
 	else:
-		espina.inicializar(-1,$Area2D/StegoEspinaCentral.texture.flip_h)
+		espina.global_position.x-= 100
+		espina.inicializar(1,$EspinaMedio,1)
+	$EspinaMedio.visible=false
+	$ReponerEspinaMedio.start(1)
+	
+func _on_timer_disparo_arriba_timeout() -> void:
+	var espina=escenaEspina.instantiate()
+	get_parent().add_child(espina)
+	espina.global_position= $Area2D/StegoEspinaAlta.global_position
+
+	if global_position.x<500:
+		espina.global_position.x+= 100
+		espina.inicializar(-1,$EspinaSuperior,0.8)
+	else:
+		espina.global_position.x-= 100
+		espina.inicializar(1,$EspinaSuperior,0.8)
+	$EspinaSuperior.visible=false
+	$ReponerEspinaArriba.start(1)
+
+func _on_timer_disparo_abajo_timeout() -> void:
+	var espina=escenaEspina.instantiate()
+	get_parent().add_child(espina)
+	espina.global_position= $Area2D/StegoEspinaBaja.global_position
+
+	if global_position.x<500:
+		espina.global_position.x+= 100
+		espina.inicializar(-1,$EspinaInferior,0.8)
+	else:
+		espina.global_position.x-= 100
+		espina.inicializar(1,$EspinaInferior,0.8)
+	$EspinaInferior.visible=false
+	$ReponerEspinaAbajo.start(1)
+
+
+func _on_reponer_espina_medio_timeout() -> void:
+	$EspinaMedio.visible=true
+
+func _on_reponer_espina_arriba_timeout() -> void:
+	$EspinaSuperior.visible=true
+
+func _on_reponer_espina_abajo_timeout() -> void:
+	$EspinaInferior.visible=true

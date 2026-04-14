@@ -100,16 +100,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3mqt"]
-size = Vector2(62, 379)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4hbw"]
-size = Vector2(28.543316, 26.365583)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_841w3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_asiml"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl47v"]
+size = Vector2(7.583333, 63.385414)
 
 [node name="Node2D" type="Node2D" unique_id=1212834159]
 script = ExtResource("1_q3mqt")
@@ -184,33 +175,47 @@ polygon = PackedVector2Array(-2.3333335, -32, -16.333334, -14.333334, -19.666666
 disabled = true
 
 [node name="StegoCuerpo" type="CollisionShape2D" parent="Area2D" unique_id=252865951]
-position = Vector2(26.5, 0.083333336)
-scale = Vector2(0.16666667, 0.16666667)
+position = Vector2(27.958334, -0.19270866)
 shape = SubResource("RectangleShape2D_q3mqt")
 
-[node name="StegoCabeza" type="CollisionShape2D" parent="Area2D" unique_id=1469087430]
-position = Vector2(29.33334, 21.500002)
-scale = Vector2(1, 1.0000001)
-skew = 0.74001944
-shape = SubResource("RectangleShape2D_l4hbw")
-
-[node name="StegoEspinaCentral" type="CollisionShape2D" parent="Area2D" unique_id=542210621]
+[node name="StegoEspinaCentral" type="CollisionPolygon2D" parent="Area2D" unique_id=841739932]
 position = Vector2(30, -2.6666667)
 rotation = 3.577925
 skew = 0.6492625
-shape = SubResource("RectangleShape2D_841w3")
+polygon = PackedVector2Array(9.718715, 2.9861374, 10.256735, -9.651545, -3.3251314, -10.5665)
 
-[node name="StegoEspinaBaja" type="CollisionShape2D" parent="Area2D" unique_id=576478500]
+[node name="StegoEspinaBaja" type="CollisionPolygon2D" parent="Area2D" unique_id=772402075]
 position = Vector2(33.166668, 8.833334)
 rotation = 3.577925
 skew = 0.6457718
-shape = SubResource("RectangleShape2D_asiml")
+polygon = PackedVector2Array(9.171762, -1.1562347, 9.354244, -9.840722, 0.73078156, -10.953109)
 
-[node name="StegoEspinaAlta" type="CollisionShape2D" parent="Area2D" unique_id=629169934]
+[node name="StegoEspinaAlta" type="CollisionPolygon2D" parent="Area2D" unique_id=246498782]
 position = Vector2(34.5, -15.833333)
 rotation = 3.577925
 skew = 0.65449846
-shape = SubResource("RectangleShape2D_kl47v")
+polygon = PackedVector2Array(9.55472, -1.8870277, 9.90203, -9.423836, 1.8253574, -9.972443)
+
+[node name="StegoCabeza" type="CollisionPolygon2D" parent="Area2D" unique_id=525858195]
+polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30.666668)
+
+[node name="TimerDisparoMedio" type="Timer" parent="." unique_id=1242048939]
+
+[node name="TimerDisparoArriba" type="Timer" parent="." unique_id=331293399]
+
+[node name="ReponerEspinaMedio" type="Timer" parent="." unique_id=1351437555]
+
+[node name="ReponerEspinaArriba" type="Timer" parent="." unique_id=936410165]
+
+[node name="TimerDisparoAbajo" type="Timer" parent="." unique_id=1520064719]
+
+[node name="ReponerEspinaAbajo" type="Timer" parent="." unique_id=194191521]
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TimerDisparoMedio" to="." method="_on_timer_disparo_medio_timeout"]
+[connection signal="timeout" from="TimerDisparoArriba" to="." method="_on_timer_disparo_arriba_timeout"]
+[connection signal="timeout" from="ReponerEspinaMedio" to="." method="_on_reponer_espina_medio_timeout"]
+[connection signal="timeout" from="ReponerEspinaArriba" to="." method="_on_reponer_espina_arriba_timeout"]
+[connection signal="timeout" from="TimerDisparoAbajo" to="." method="_on_timer_disparo_abajo_timeout"]
+[connection signal="timeout" from="ReponerEspinaAbajo" to="." method="_on_reponer_espina_abajo_timeout"]

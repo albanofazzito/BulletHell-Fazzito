@@ -1,2 +1,9 @@
-res://Scripts/Espina.gd
+res://Scripts/MovimientoRaptor.gd
+res://Escenas/Raptor.tscn
+res://Escenas/Espina.tscn
+res://Escenas/Juego.tscn
+res://Scripts/Vidas.gd
+res://Escenas/Stego.tscn
 res://Scripts/Stego.gd
+res://Scripts/Espina.gd
+res://Escenas/espinaDirigida.tscn

@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://buxceex40qct7" path="res://Sprites/MovimientoRaptor.png" id="1_3801x"]
 [ext_resource type="Script" uid="uid://ckbxf42x4p8o7" path="res://Scripts/MovimientoRaptor.gd" id="1_ekuly"]
+[ext_resource type="Texture2D" uid="uid://d0q23oh1u11hx" path="res://Sprites/Vida.png" id="3_jtbm7"]
+[ext_resource type="Script" uid="uid://cpc5f2ird34hq" path="res://Scripts/Vidas.gd" id="3_ons4s"]
+[ext_resource type="Texture2D" uid="uid://dbvjolny174f4" path="res://Sprites/RaptorMuerte.png" id="5_t3k6i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekuly"]
 atlas = ExtResource("1_3801x")
@@ -40,8 +43,100 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vle45"]
-radius = 5.281766
-height = 14.626205
+radius = 3.2337284
+height = 12.666667
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_000v4"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vle45"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac2ov"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2ub"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(48, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7acgs"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_581xj"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(80, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldv4q"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(96, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20uc8"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(112, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbubl"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(128, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kidaf"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(144, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmhj5"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(160, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb3yq"]
+atlas = ExtResource("5_t3k6i")
+region = Rect2(176, 0, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8kpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_000v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vle45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac2ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7acgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_581xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldv4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20uc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbubl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kidaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmhj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb3yq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=1651068310]
 
@@ -50,12 +145,11 @@ scale = Vector2(3, 3)
 script = ExtResource("1_ekuly")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=7855284]
+position = Vector2(0.33333334, 0.33333334)
 sprite_frames = SubResource("SpriteFrames_000v4")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2076511253]
-position = Vector2(-0.33333325, -1.3333333)
-skew = -0.5235988
 shape = SubResource("CapsuleShape2D_vle45")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=345664223]
@@ -64,5 +158,47 @@ wait_time = 1.5
 [node name="TimerParpadeo" type="Timer" parent="CharacterBody2D" unique_id=1958866441]
 wait_time = 0.1
 
+[node name="BoxContainer" type="HBoxContainer" parent="CharacterBody2D" unique_id=2061942704]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -14.666669
+offset_right = 45.0
+offset_bottom = 1.3333311
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("3_ons4s")
+
+[node name="vida1" type="TextureRect" parent="CharacterBody2D/BoxContainer" unique_id=508821195]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_jtbm7")
+
+[node name="vida2" type="TextureRect" parent="CharacterBody2D/BoxContainer" unique_id=217485860]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_jtbm7")
+
+[node name="vida3" type="TextureRect" parent="CharacterBody2D/BoxContainer" unique_id=107841074]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_jtbm7")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=825055450]
+visible = false
+position = Vector2(0.33333337, -1.6666669)
+sprite_frames = SubResource("SpriteFrames_h8kpq")
+frame = 5
+frame_progress = 0.6572188
+
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D/BoxContainer" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/TimerParpadeo" to="CharacterBody2D" method="_on_timer_parpadeo_timeout"]
+[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D2" to="CharacterBody2D" method="_on_animated_sprite_2d_2_animation_finished"]

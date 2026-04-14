@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://y8w7ew4rl2ai"]
+
+[ext_resource type="Texture2D" uid="uid://boudu4ks8gotm" path="res://Sprites/StegoSaurio/Espinillas.png" id="1_vphsv"]
+
+[node name="Node2D" type="Node2D" unique_id=1651533798]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210963342]
+texture = ExtResource("1_vphsv")
