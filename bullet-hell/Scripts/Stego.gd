@@ -1,10 +1,12 @@
 extends Node2D
+var escenaEspina= preload("res://Escenas/Espina.tscn")
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
 
 func _on_animated_sprite_2d_frame_changed():
 	if $AnimatedSprite2D.frame==0 :
 		$Area2D/ColaIzquierda.disabled=false
+		_disparar()
 	else:
 		$Area2D/ColaIzquierda.disabled=true
 	if $AnimatedSprite2D.frame==1 or $AnimatedSprite2D.frame==11:
@@ -37,3 +39,8 @@ func _on_animated_sprite_2d_frame_changed():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Jugador"):
 		body.recibirDaño()
+		
+func _disparar():
+	var espina=escenaEspina.instantiate()
+	get_parent().add_child(espina)
+	espina.global_position= $Area2D/StegoEspinaCentral
