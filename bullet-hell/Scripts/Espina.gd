@@ -1,9 +1,15 @@
 extends Node2D
 
 
-var velocidad= Vector2(100,0)
+var velocidad= 100
+var direccion=1
+var spriteAdecuado=$Sprite2D.texture
+
+func inicializar(dir,sprite):
+	direccion=dir
+	spriteAdecuado=sprite
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x=velocidad*delta
+	position.x+=velocidad*delta *direccion
+	$Sprite2D.texture=spriteAdecuado
