@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blpobhu5o814p" path="res://Sprites/FondoMenuPrincipal.png" id="1_20qv4"]
 [ext_resource type="PackedScene" uid="uid://bq4331rcxrje4" path="res://Escenas/BotonJugar.tscn" id="2_iq5l4"]
+[ext_resource type="PackedScene" uid="uid://c0o6xdpp5gfe1" path="res://Escenas/BotonOpciones.tscn" id="3_i4iwo"]
 
 [node name="MenuPrincipal" type="Control" unique_id=91487819]
 layout_mode = 3
@@ -24,6 +25,13 @@ texture = ExtResource("1_20qv4")
 [node name="Control" parent="." unique_id=2040401451 instance=ExtResource("2_iq5l4")]
 layout_mode = 1
 offset_left = 379.0
-offset_top = 379.0
+offset_top = 271.0
 offset_right = -699.0
-offset_bottom = -247.0
+offset_bottom = -355.0
+
+[node name="Control2" parent="." unique_id=745876592 instance=ExtResource("3_i4iwo")]
+layout_mode = 1
+offset_left = 379.0
+offset_top = 438.0
+offset_right = -699.0
+offset_bottom = -188.0

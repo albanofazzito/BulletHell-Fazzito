@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c0o6xdpp5gfe1"]
+
+[ext_resource type="Texture2D" uid="uid://bc17ubq870lgi" path="res://Sprites/BotonAjustes/BotonAjustesNormal.png" id="1_evaqu"]
+[ext_resource type="Texture2D" uid="uid://b1nwex5bpvl2x" path="res://Sprites/BotonAjustes/BotonAjustesPressed.png" id="2_rjn1a"]
+[ext_resource type="Texture2D" uid="uid://dd8xe0tjc3yap" path="res://Sprites/BotonAjustes/BotonAjustesHover.png" id="3_gj3d2"]
+[ext_resource type="Script" uid="uid://cbyjdnwublhkw" path="res://Scripts/BotonOpciones.gd" id="4_1unas"]
+
+[node name="Control" type="Control" unique_id=745876592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1078.0
+offset_bottom = -626.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1911480846]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 22.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_evaqu")
+texture_pressed = ExtResource("2_rjn1a")
+texture_hover = ExtResource("3_gj3d2")
+script = ExtResource("4_1unas")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

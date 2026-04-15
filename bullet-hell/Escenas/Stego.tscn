@@ -211,6 +211,10 @@ polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30
 
 [node name="ReponerEspinaAbajo" type="Timer" parent="." unique_id=194191521]
 
+[node name="TimerDisparoDirigido" type="Timer" parent="." unique_id=25760604]
+
+[node name="ReponerEspinillas" type="Timer" parent="." unique_id=1184711109]
+
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="TimerDisparoMedio" to="." method="_on_timer_disparo_medio_timeout"]
@@ -219,3 +223,5 @@ polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30
 [connection signal="timeout" from="ReponerEspinaArriba" to="." method="_on_reponer_espina_arriba_timeout"]
 [connection signal="timeout" from="TimerDisparoAbajo" to="." method="_on_timer_disparo_abajo_timeout"]
 [connection signal="timeout" from="ReponerEspinaAbajo" to="." method="_on_reponer_espina_abajo_timeout"]
+[connection signal="timeout" from="TimerDisparoDirigido" to="." method="_on_timer_disparo_dirigido_timeout"]
+[connection signal="timeout" from="ReponerEspinillas" to="." method="_on_reponer_espinillas_timeout"]

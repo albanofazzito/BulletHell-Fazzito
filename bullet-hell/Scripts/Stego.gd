@@ -1,10 +1,14 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
+var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
+
+
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
 	$TimerDisparoArriba.start(randf_range(3,6))
 	$TimerDisparoMedio.start(randf_range(4,7))
 	$TimerDisparoAbajo.start(randf_range(3,6))
+	$TimerDisparoDirigido.start(randf_range(1,4))
 
 func _on_animated_sprite_2d_frame_changed():
 	if $AnimatedSprite2D.frame==0 :
@@ -98,3 +102,22 @@ func _on_reponer_espina_arriba_timeout() -> void:
 
 func _on_reponer_espina_abajo_timeout() -> void:
 	$EspinaInferior.visible=true
+
+
+func _on_timer_disparo_dirigido_timeout():
+	var jugador = get_tree().get_first_node_in_group("Jugador")
+	var espinaDirigida=escenaEspinaDirigida.instantiate()
+	get_parent().add_child(espinaDirigida)
+	espinaDirigida.global_position= $Espinillas.global_position
+	var dir = (jugador.global_position - espinaDirigida.global_position).normalized()
+	if global_position.x<500:
+		espinaDirigida.global_position.x+= 100
+		espinaDirigida.inicializar(dir)
+	else:
+		espinaDirigida.global_position.x-= 100
+		espinaDirigida.inicializar(dir)
+	$Espinillas.visible=false
+	$ReponerEspinillas.start(1)
+
+func _on_reponer_espinillas_timeout():
+	$Espinillas.visible=true
