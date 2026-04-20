@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://b742b8t84pete"]
 
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="1_opsjl"]
-[ext_resource type="Script" uid="uid://dl2ryofaevai6" path="res://Scripts/Principal.gd" id="1_tourb"]
 [ext_resource type="PackedScene" uid="uid://cwxne5qalbkiy" path="res://Escenas/Stego.tscn" id="2_w4ft7"]
 [ext_resource type="AudioStream" uid="uid://b0fborvih6d2" path="res://Audio/MusicaNivel2.mp3" id="4_a5pd0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5pd0"]
-size = Vector2(1163, 33)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tourb"]
+distance = 16.5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a5pd0"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q5ubt"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbjfh"]
+normal = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1919910432]
-script = ExtResource("1_tourb")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=400852702]
 offset_left = -10.0
@@ -35,8 +42,20 @@ volume_db = -5.525
 autoplay = true
 parameters/looping = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=788275194]
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=2006085664]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=882458836]
 position = Vector2(580.5, 666.5)
-shape = SubResource("RectangleShape2D_a5pd0")
+shape = SubResource("WorldBoundaryShape2D_tourb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1277866401]
+position = Vector2(-1, 245)
+shape = SubResource("WorldBoundaryShape2D_a5pd0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=300115396]
+position = Vector2(1154, 252)
+shape = SubResource("WorldBoundaryShape2D_q5ubt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=2140750516]
+position = Vector2(575, -2)
+shape = SubResource("WorldBoundaryShape2D_pbjfh")

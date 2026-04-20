@@ -1,5 +1,6 @@
-Area2D
 CollisionShape2D
+StaticBody2D
+Area2D
 Timer
 CharacterBody2D
 AnimatedSprite2D
@@ -11,4 +12,3 @@ HBoxContainer
 TextureRect
 BoxContainer
 CanvasLayer
-Label

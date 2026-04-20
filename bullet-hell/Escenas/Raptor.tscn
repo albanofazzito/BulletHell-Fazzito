@@ -2,10 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://buxceex40qct7" path="res://Sprites/MovimientoRaptor.png" id="1_3801x"]
 [ext_resource type="Script" uid="uid://ckbxf42x4p8o7" path="res://Scripts/MovimientoRaptor.gd" id="1_ekuly"]
+[ext_resource type="Texture2D" uid="uid://dhc50ucb0e3ya" path="res://Sprites/RaptorArriba.png" id="2_vle45"]
 [ext_resource type="Texture2D" uid="uid://d0q23oh1u11hx" path="res://Sprites/Vida.png" id="3_jtbm7"]
 [ext_resource type="Script" uid="uid://cpc5f2ird34hq" path="res://Scripts/Vidas.gd" id="3_ons4s"]
 [ext_resource type="Texture2D" uid="uid://dbvjolny174f4" path="res://Sprites/RaptorMuerte.png" id="5_t3k6i"]
 [ext_resource type="AudioStream" uid="uid://boihb42d0rg0i" path="res://Audio/VidaPerdida.mp3" id="6_000v4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8kpq"]
+atlas = ExtResource("2_vle45")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae57f"]
+atlas = ExtResource("2_vle45")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brvtv"]
+atlas = ExtResource("2_vle45")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekuly"]
 atlas = ExtResource("1_3801x")
@@ -25,6 +38,20 @@ region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_000v4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8kpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae57f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brvtv")
+}],
+"loop": true,
+"name": &"Arriba",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ekuly")
@@ -148,6 +175,7 @@ script = ExtResource("1_ekuly")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=7855284]
 position = Vector2(0.33333334, 0.33333334)
 sprite_frames = SubResource("SpriteFrames_000v4")
+animation = &"Arriba"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2076511253]
@@ -205,7 +233,7 @@ stream = ExtResource("6_000v4")
 volume_db = -3.543
 
 [node name="cooldown" type="Timer" parent="CharacterBody2D" unique_id=1718814229]
-wait_time = 0.5
+wait_time = 0.3
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D/BoxContainer" method="_on_timer_timeout"]

@@ -100,7 +100,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3mqt"]
-size = Vector2(7.583333, 63.385414)
+size = Vector2(7.583333, 45.385414)
 
 [node name="Node2D" type="Node2D" unique_id=1212834159]
 script = ExtResource("1_q3mqt")
@@ -175,7 +175,7 @@ polygon = PackedVector2Array(-2.3333335, -32, -16.333334, -14.333334, -19.666666
 disabled = true
 
 [node name="StegoCuerpo" type="CollisionShape2D" parent="Area2D" unique_id=252865951]
-position = Vector2(27.958334, -0.19270866)
+position = Vector2(27.958334, -9.192707)
 shape = SubResource("RectangleShape2D_q3mqt")
 
 [node name="StegoEspinaCentral" type="CollisionPolygon2D" parent="Area2D" unique_id=841739932]
@@ -196,9 +196,6 @@ rotation = 3.577925
 skew = 0.65449846
 polygon = PackedVector2Array(9.55472, -1.8870277, 9.90203, -9.423836, 1.8253574, -9.972443)
 
-[node name="StegoCabeza" type="CollisionPolygon2D" parent="Area2D" unique_id=525858195]
-polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30.666668)
-
 [node name="TimerDisparoMedio" type="Timer" parent="." unique_id=1242048939]
 
 [node name="TimerDisparoArriba" type="Timer" parent="." unique_id=331293399]
@@ -215,6 +212,12 @@ polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30
 
 [node name="ReponerEspinillas" type="Timer" parent="." unique_id=1184711109]
 
+[node name="ZonaDebil" type="Area2D" parent="." unique_id=507939077]
+
+[node name="StegoCabeza" type="CollisionPolygon2D" parent="ZonaDebil" unique_id=525858195]
+scale = Vector2(6, 6)
+polygon = PackedVector2Array(22.166668, 14.166667, 8.166667, 29.333334, 31.333334, 30.166668, 31.333334, 14.833334)
+
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
@@ -226,3 +229,5 @@ polygon = PackedVector2Array(22.833334, 13.5, 8.166667, 29.333334, 23.833334, 30
 [connection signal="timeout" from="ReponerEspinaAbajo" to="." method="_on_reponer_espina_abajo_timeout"]
 [connection signal="timeout" from="TimerDisparoDirigido" to="." method="_on_timer_disparo_dirigido_timeout"]
 [connection signal="timeout" from="ReponerEspinillas" to="." method="_on_reponer_espinillas_timeout"]
+[connection signal="area_entered" from="ZonaDebil" to="." method="_on_zona_debil_area_entered"]
+[connection signal="body_entered" from="ZonaDebil" to="." method="_on_zona_debil_body_entered"]

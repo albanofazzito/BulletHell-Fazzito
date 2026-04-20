@@ -135,3 +135,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("DisparoRaptor"):
 		vida-=1
 		print(vida)
+
+
+func _on_zona_debil_body_entered(body):
+	if body.is_in_group("Jugador"):
+		body.recibirDaño()
+
+
+func _on_zona_debil_area_entered(area):
+	if area.is_in_group("DisparoRaptor"):
+		vida-=2
+		print(vida)
