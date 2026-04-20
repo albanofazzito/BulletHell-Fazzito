@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="1_opsjl"]
 [ext_resource type="Script" uid="uid://dl2ryofaevai6" path="res://Scripts/Principal.gd" id="1_tourb"]
 [ext_resource type="PackedScene" uid="uid://cwxne5qalbkiy" path="res://Escenas/Stego.tscn" id="2_w4ft7"]
+[ext_resource type="AudioStream" uid="uid://b0fborvih6d2" path="res://Audio/MusicaNivel2.mp3" id="4_a5pd0"]
 
 [node name="Node2D" type="Node2D" unique_id=1919910432]
 script = ExtResource("1_tourb")
@@ -24,3 +25,9 @@ scale = Vector2(1.7, 1.7)
 [node name="Node2D3" parent="." unique_id=784230341 instance=ExtResource("2_w4ft7")]
 position = Vector2(326.99988, 325)
 scale = Vector2(-1.7, 1.7)
+
+[node name="MusicaNivel2" type="AudioStreamPlayer" parent="." unique_id=556733865]
+stream = ExtResource("4_a5pd0")
+volume_db = -5.525
+autoplay = true
+parameters/looping = true

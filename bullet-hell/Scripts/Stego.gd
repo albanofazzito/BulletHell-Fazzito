@@ -1,12 +1,12 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
-
+var vida=200
 
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
-	$TimerDisparoArriba.start(randf_range(3,6))
-	$TimerDisparoMedio.start(randf_range(4,7))
+	$TimerDisparoArriba.start(randf_range(2,4))
+	$TimerDisparoMedio.start(randf_range(5,8))
 	$TimerDisparoAbajo.start(randf_range(3,6))
 	$TimerDisparoDirigido.start(randf_range(1,4))
 
@@ -45,9 +45,9 @@ func _on_animated_sprite_2d_frame_changed():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Jugador"):
 		body.recibirDaño()
-
-
-	
+	elif body.is_in_group("DisparoRaptor"):
+		vida-=1
+		print (vida)
 
 
 

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d0q23oh1u11hx" path="res://Sprites/Vida.png" id="3_jtbm7"]
 [ext_resource type="Script" uid="uid://cpc5f2ird34hq" path="res://Scripts/Vidas.gd" id="3_ons4s"]
 [ext_resource type="Texture2D" uid="uid://dbvjolny174f4" path="res://Sprites/RaptorMuerte.png" id="5_t3k6i"]
+[ext_resource type="AudioStream" uid="uid://boihb42d0rg0i" path="res://Audio/VidaPerdida.mp3" id="6_000v4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekuly"]
 atlas = ExtResource("1_3801x")
@@ -198,7 +199,16 @@ sprite_frames = SubResource("SpriteFrames_h8kpq")
 frame = 5
 frame_progress = 0.6572188
 
+[node name="VidaPerdida" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1890317836]
+scale = Vector2(0.33333334, 0.33333334)
+stream = ExtResource("6_000v4")
+volume_db = -3.543
+
+[node name="cooldown" type="Timer" parent="CharacterBody2D" unique_id=1718814229]
+wait_time = 0.5
+
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D/BoxContainer" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/TimerParpadeo" to="CharacterBody2D" method="_on_timer_parpadeo_timeout"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D2" to="CharacterBody2D" method="_on_animated_sprite_2d_2_animation_finished"]
+[connection signal="timeout" from="CharacterBody2D/cooldown" to="CharacterBody2D" method="_on_cooldown_timeout"]

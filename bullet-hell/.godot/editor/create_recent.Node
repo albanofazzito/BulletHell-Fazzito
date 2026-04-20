@@ -1,13 +1,14 @@
 Timer
+CharacterBody2D
 Area2D
+CollisionShape2D
+AnimatedSprite2D
+AudioStreamPlayer2D
 CollisionPolygon2D
 TextureButton
 Sprite2D
-CollisionShape2D
-AnimatedSprite2D
 HBoxContainer
 TextureRect
 BoxContainer
 CanvasLayer
 Label
-CharacterBody2D

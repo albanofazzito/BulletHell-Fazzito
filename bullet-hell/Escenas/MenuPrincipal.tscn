@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://blpobhu5o814p" path="res://Sprites/FondoMenuPrincipal.png" id="1_20qv4"]
 [ext_resource type="PackedScene" uid="uid://bq4331rcxrje4" path="res://Escenas/BotonJugar.tscn" id="2_iq5l4"]
 [ext_resource type="PackedScene" uid="uid://c0o6xdpp5gfe1" path="res://Escenas/BotonOpciones.tscn" id="3_i4iwo"]
+[ext_resource type="AudioStream" uid="uid://fcyj86qn7iqk" path="res://Audio/MusicaMenu.mp3" id="4_shwl5"]
 
 [node name="MenuPrincipal" type="Control" unique_id=91487819]
 layout_mode = 3
@@ -35,3 +36,8 @@ offset_left = 379.0
 offset_top = 438.0
 offset_right = -699.0
 offset_bottom = -188.0
+
+[node name="MusicaMenu" type="AudioStreamPlayer2D" parent="." unique_id=476583740]
+stream = ExtResource("4_shwl5")
+autoplay = true
+parameters/looping = true
