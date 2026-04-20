@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cwxne5qalbkiy" path="res://Escenas/Stego.tscn" id="2_w4ft7"]
 [ext_resource type="AudioStream" uid="uid://b0fborvih6d2" path="res://Audio/MusicaNivel2.mp3" id="4_a5pd0"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5pd0"]
+size = Vector2(1163, 33)
+
 [node name="Node2D" type="Node2D" unique_id=1919910432]
 script = ExtResource("1_tourb")
 
@@ -31,3 +34,9 @@ stream = ExtResource("4_a5pd0")
 volume_db = -5.525
 autoplay = true
 parameters/looping = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=788275194]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=882458836]
+position = Vector2(580.5, 666.5)
+shape = SubResource("RectangleShape2D_a5pd0")

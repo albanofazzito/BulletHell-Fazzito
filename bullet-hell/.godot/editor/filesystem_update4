@@ -1,8 +1,6 @@
 res://Escenas/Juego.tscn
-res://Scripts/Stego.gd
 res://Escenas/DisparoRaptor.tscn
-res://Scripts/MovimientoRaptor.gd
+res://Scripts/Stego.gd
+res://Escenas/Stego.tscn
 res://Scripts/disparo_raptor.gd
-res://Escenas/Raptor.tscn
-res://Scripts/Espina.gd
-res://Scripts/espina_dirigida.gd
+res://Scripts/MovimientoRaptor.gd

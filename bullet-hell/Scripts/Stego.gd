@@ -1,7 +1,8 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
-var vida=200
+var vida=100
+var muerto=false
 
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
@@ -39,16 +40,23 @@ func _on_animated_sprite_2d_frame_changed():
 		$Area2D/ColaDerecha.disabled=false
 	else:
 		$Area2D/ColaDerecha.disabled=true
+	if vida<=0:
+		morir()
 	
 
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Jugador"):
 		body.recibirDaño()
-	elif body.is_in_group("DisparoRaptor"):
-		vida-=1
-		print (vida)
 
+func morir():
+	muerto=true
+	$Area2D.visible=false
+	$AnimatedSprite2D.visible=false
+	$EspinaInferior.visible=false
+	$EspinaMedio.visible=false
+	$EspinaSuperior.visible=false
+	$Espinillas.visible=false
 
 
 func _on_timer_disparo_medio_timeout() -> void:
@@ -121,3 +129,9 @@ func _on_timer_disparo_dirigido_timeout():
 
 func _on_reponer_espinillas_timeout():
 	$Espinillas.visible=true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("DisparoRaptor"):
+		vida-=1
+		print(vida)

@@ -11,7 +11,6 @@ func _physics_process(delta):
 		var direccion= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		if direccion.x> 0:
 			$AnimatedSprite2D.flip_h= true
-			disparar()
 		elif direccion.x< 0:
 			$AnimatedSprite2D.flip_h= false
 		if direccion==Vector2.ZERO:
@@ -22,7 +21,10 @@ func _physics_process(delta):
 		move_and_slide()
 
 
-
+func _input(event: InputEvent):
+	if event is InputEventMouseButton:
+		if event.button_index== MOUSE_BUTTON_LEFT and event.pressed:
+			disparar()
 
 func recibirDaño():
 	if invencible==false and AutoLoad.vidas>=1:

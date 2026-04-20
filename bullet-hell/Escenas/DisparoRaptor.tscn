@@ -52,7 +52,7 @@ sprite_frames = SubResource("SpriteFrames_ufcii")
 autoplay = "default"
 frame_progress = 0.24076958
 
-[node name="Area2D" type="CharacterBody2D" parent="." unique_id=2008660504 groups=["DisparoRaptor"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=17886655 groups=["DisparoRaptor"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=514991412]
 shape = SubResource("CircleShape2D_ltdm7")
