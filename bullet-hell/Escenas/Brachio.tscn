@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://by6gnucb8ecwa"]
+
+[ext_resource type="Script" uid="uid://c52tip2wdokxy" path="res://Scripts/TextoBrachio.gd" id="1_t5pya"]
+[ext_resource type="Texture2D" uid="uid://dxno5gpfcr1dk" path="res://Sprites/brachio.png" id="2_06c01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi0i3"]
+atlas = ExtResource("2_06c01")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugyp"]
+atlas = ExtResource("2_06c01")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emiuj"]
+atlas = ExtResource("2_06c01")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj1pt"]
+atlas = ExtResource("2_06c01")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wij2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi0i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jugyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emiuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj1pt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ng6tf"]
+radius = 81.0
+height = 162.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vntrp"]
+bg_color = Color(3.85046e-07, 0.6094931, 0.6153996, 0.92941177)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Node2D" type="Node2D" unique_id=602948997]
+script = ExtResource("1_t5pya")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=93481427]
+
+[node name="Brachio" type="AnimatedSprite2D" parent="Area2D" unique_id=1249678741]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wij2i")
+autoplay = "default"
+frame_progress = 0.8487866
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=99320557]
+shape = SubResource("CapsuleShape2D_ng6tf")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1356100759]
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=920009277]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 100.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vntrp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Node2D/Panel" unique_id=2049842752]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 12
+text = "a
+"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

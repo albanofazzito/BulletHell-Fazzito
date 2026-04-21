@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b742b8t84pete"]
 
+[ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_a5pd0"]
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="1_opsjl"]
 [ext_resource type="PackedScene" uid="uid://cwxne5qalbkiy" path="res://Escenas/Stego.tscn" id="2_w4ft7"]
 [ext_resource type="AudioStream" uid="uid://b0fborvih6d2" path="res://Audio/MusicaNivel2.mp3" id="4_a5pd0"]
@@ -18,12 +19,9 @@ normal = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1919910432]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=400852702]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 1160.0
-offset_bottom = 655.0
-color = Color(0.88235295, 0.92156863, 0.6156863, 1)
+[node name="Arena" type="Sprite2D" parent="." unique_id=1363459211]
+position = Vector2(579, 324)
+texture = ExtResource("1_a5pd0")
 
 [node name="Node2D" parent="." unique_id=1651068310 instance=ExtResource("1_opsjl")]
 position = Vector2(598, 310)

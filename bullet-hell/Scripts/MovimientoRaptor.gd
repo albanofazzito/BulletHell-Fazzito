@@ -8,7 +8,7 @@ var disparando=true
 
 func _physics_process(delta):
 	if AutoLoad.vidas>0:
-		var direccion= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		var direccion= Input.get_vector("mover_izquierda","mover_derecha","mover_arriba","mover_abajo")
 		if direccion.y<0 and direccion.x==0:
 			$AnimatedSprite2D.play("Arriba")
 			$AnimatedSprite2D.flip_v=false

@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://dhyum5gmrrefq"]
 
+[ext_resource type="Script" uid="uid://copte48mdvc1b" path="res://Scripts/tutorial.gd" id="1_sklaq"]
+[ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_x6ikd"]
+[ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="2_ekji2"]
+
 [node name="Node2D" type="Node2D" unique_id=474134944]
+script = ExtResource("1_sklaq")
+
+[node name="Arena" type="Sprite2D" parent="." unique_id=517604028]
+position = Vector2(576, 324)
+texture = ExtResource("1_x6ikd")
+
+[node name="Node2D" parent="." unique_id=1651068310 instance=ExtResource("2_ekji2")]
+position = Vector2(532, 198)

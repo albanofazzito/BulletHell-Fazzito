@@ -4,3 +4,10 @@ res://Escenas/Stego.tscn
 res://Escenas/Raptor.tscn
 res://Scripts/Stego.gd
 res://Escenas/Juego.tscn
+res://BrachioNPC.gd
+res://Escenas/Tutorial.tscn
+res://Brachio.tscn
+res://Scripts/BrachioNPC.gd
+res://Escenas/Brachio.tscn
+res://Scripts/TextoBrachio.gd
+res://Scripts/tutorial.gd
