@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://copte48mdvc1b" path="res://Scripts/tutorial.gd" id="1_sklaq"]
 [ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_x6ikd"]
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="2_ekji2"]
+[ext_resource type="PackedScene" uid="uid://cmam2ia5md40v" path="res://Escenas/BordePalmeras.tscn" id="4_sklaq"]
+[ext_resource type="PackedScene" uid="uid://mibyl0w85t6r" path="res://Escenas/Costillas.tscn" id="5_v10s8"]
 
-[node name="Node2D" type="Node2D" unique_id=474134944]
+[node name="Node2D" type="Node2D" unique_id=474134944 groups=["Tutorial"]]
 script = ExtResource("1_sklaq")
 
 [node name="Arena" type="Sprite2D" parent="." unique_id=517604028]
@@ -13,3 +15,31 @@ texture = ExtResource("1_x6ikd")
 
 [node name="Node2D" parent="." unique_id=1651068310 instance=ExtResource("2_ekji2")]
 position = Vector2(532, 198)
+
+[node name="Node2D2" parent="." unique_id=1382486658 instance=ExtResource("4_sklaq")]
+position = Vector2(-5, 1)
+
+[node name="TimerMensajes" type="Timer" parent="." unique_id=916948730]
+wait_time = 5.0
+one_shot = true
+
+[node name="Node2D3" parent="." unique_id=175903414 instance=ExtResource("5_v10s8")]
+visible = false
+position = Vector2(233, 230)
+
+[node name="Node2D4" parent="." unique_id=1808353171 instance=ExtResource("5_v10s8")]
+visible = false
+position = Vector2(233, 438)
+
+[node name="Node2D5" parent="." unique_id=384131849 instance=ExtResource("5_v10s8")]
+visible = false
+position = Vector2(873, 230)
+
+[node name="Node2D6" parent="." unique_id=1864021810 instance=ExtResource("5_v10s8")]
+visible = false
+position = Vector2(873, 438)
+
+[node name="TimerMeteoritos" type="Timer" parent="." unique_id=192182662]
+
+[connection signal="timeout" from="TimerMensajes" to="." method="_on_timer_mensajes_timeout"]
+[connection signal="timeout" from="TimerMeteoritos" to="." method="_on_timer_meteoritos_timeout"]

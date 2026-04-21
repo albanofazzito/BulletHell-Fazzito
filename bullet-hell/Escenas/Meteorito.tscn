@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cf6e8geldjb6p"]
+
+[ext_resource type="Script" uid="uid://f24n41pcmldl" path="res://Scripts/meteorito.gd" id="1_20vuu"]
+[ext_resource type="Texture2D" uid="uid://ria38ia7puwo" path="res://Sprites/Meteorito.png" id="1_jbu2r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20vuu"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5buj"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ihdm"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30now"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2skif"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3opy"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crdgc"]
+atlas = ExtResource("1_jbu2r")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfms1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5buj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ihdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30now")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2skif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3opy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crdgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1977365608]
+script = ExtResource("1_20vuu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=713460377]
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=803402438]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_20vuu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=126391340]
+sprite_frames = SubResource("SpriteFrames_sfms1")
+autoplay = "default"
+frame_progress = 0.49689957
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

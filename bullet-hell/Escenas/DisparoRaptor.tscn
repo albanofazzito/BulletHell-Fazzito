@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dyx6k78rgiw5f" path="res://Sprites/RaptorDisparo.png" id="1_4gvhk"]
 [ext_resource type="Script" uid="uid://dsqu5h0i3besd" path="res://Scripts/disparo_raptor.gd" id="1_kbgk4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltdm7"]
+radius = 8.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbgk4"]
 atlas = ExtResource("1_4gvhk")
 region = Rect2(0, 0, 16, 16)
@@ -39,20 +42,17 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ltdm7"]
-radius = 8.0
-
 [node name="Node2D" type="Node2D" unique_id=2070516593]
 scale = Vector2(2, 2)
 script = ExtResource("1_kbgk4")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2106731089]
-position = Vector2(0, 1)
-sprite_frames = SubResource("SpriteFrames_ufcii")
-autoplay = "default"
-frame_progress = 0.24076958
 
 [node name="Area2D" type="Area2D" parent="." unique_id=17886655 groups=["DisparoRaptor"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=514991412]
 shape = SubResource("CircleShape2D_ltdm7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=2106731089]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_ufcii")
+autoplay = "default"
+frame_progress = 0.24076958

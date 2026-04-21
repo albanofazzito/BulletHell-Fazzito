@@ -218,6 +218,9 @@ polygon = PackedVector2Array(9.55472, -1.8870277, 9.90203, -9.423836, 1.8253574,
 scale = Vector2(6, 6)
 polygon = PackedVector2Array(22.166668, 14.166667, 8.166667, 29.333334, 31.333334, 30.166668, 31.333334, 14.833334)
 
+[node name="TimerHerido" type="Timer" parent="." unique_id=386046408]
+wait_time = 0.05
+
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
@@ -231,3 +234,4 @@ polygon = PackedVector2Array(22.166668, 14.166667, 8.166667, 29.333334, 31.33333
 [connection signal="timeout" from="ReponerEspinillas" to="." method="_on_reponer_espinillas_timeout"]
 [connection signal="area_entered" from="ZonaDebil" to="." method="_on_zona_debil_area_entered"]
 [connection signal="body_entered" from="ZonaDebil" to="." method="_on_zona_debil_body_entered"]
+[connection signal="timeout" from="TimerHerido" to="." method="_on_timer_herido_timeout"]

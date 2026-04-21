@@ -51,12 +51,7 @@ func _on_area_2d_body_entered(body):
 
 func morir():
 	muerto=true
-	$Area2D.visible=false
-	$AnimatedSprite2D.visible=false
-	$EspinaInferior.visible=false
-	$EspinaMedio.visible=false
-	$EspinaSuperior.visible=false
-	$Espinillas.visible=false
+	queue_free()
 
 
 func _on_timer_disparo_medio_timeout() -> void:
@@ -72,6 +67,7 @@ func _on_timer_disparo_medio_timeout() -> void:
 		espina.inicializar(1,$EspinaMedio,1)
 	$EspinaMedio.visible=false
 	$ReponerEspinaMedio.start(1)
+	$TimerDisparoMedio.start(randf_range(5,8))
 	
 func _on_timer_disparo_arriba_timeout() -> void:
 	var espina=escenaEspina.instantiate()
@@ -86,6 +82,7 @@ func _on_timer_disparo_arriba_timeout() -> void:
 		espina.inicializar(1,$EspinaSuperior,0.8)
 	$EspinaSuperior.visible=false
 	$ReponerEspinaArriba.start(1)
+	$TimerDisparoAbajo.start(randf_range(3,6))
 
 func _on_timer_disparo_abajo_timeout() -> void:
 	var espina=escenaEspina.instantiate()
@@ -100,6 +97,7 @@ func _on_timer_disparo_abajo_timeout() -> void:
 		espina.inicializar(1,$EspinaInferior,0.8)
 	$EspinaInferior.visible=false
 	$ReponerEspinaAbajo.start(1)
+	$TimerDisparoArriba.start(randf_range(2,4))
 
 
 func _on_reponer_espina_medio_timeout() -> void:
@@ -126,6 +124,7 @@ func _on_timer_disparo_dirigido_timeout():
 		espinaDirigida.inicializar(dir)
 	$Espinillas.visible=false
 	$ReponerEspinillas.start(1)
+	$TimerDisparoDirigido.start(randf_range(1,4))
 
 func _on_reponer_espinillas_timeout():
 	$Espinillas.visible=true
@@ -133,8 +132,10 @@ func _on_reponer_espinillas_timeout():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("DisparoRaptor"):
+		area.queue_free()
 		vida-=2
-		print(vida)
+		herir()
+		$TimerHerido.start()
 
 
 func _on_zona_debil_body_entered(body):
@@ -144,5 +145,22 @@ func _on_zona_debil_body_entered(body):
 
 func _on_zona_debil_area_entered(area):
 	if area.is_in_group("DisparoRaptor"):
+		area.queue_free()
 		vida-=1
-		print(vida)
+		herir()
+		$TimerHerido.start()
+
+
+func _on_timer_herido_timeout() -> void:
+		$AnimatedSprite2D.modulate= Color(1,1,1)
+		$EspinaSuperior.modulate= Color(1,1,1)
+		$EspinaInferior.modulate= Color(1,1,1)
+		$EspinaMedio.modulate= Color(1,1,1)
+		$Espinillas.modulate= Color(1,1,1)
+		
+func herir():
+	$AnimatedSprite2D.modulate= Color(1,0,0)
+	$EspinaSuperior.modulate= Color(1,0,0)
+	$EspinaInferior.modulate= Color(1,0,0)
+	$EspinaMedio.modulate= Color(1,0,0)
+	$Espinillas.modulate= Color(1,0,0)

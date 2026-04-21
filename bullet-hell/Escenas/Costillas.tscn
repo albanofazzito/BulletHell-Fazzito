@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://mibyl0w85t6r"]
+
+[ext_resource type="Script" uid="uid://bi4ppa08d187k" path="res://Scripts/costillas.gd" id="1_1j3j5"]
+[ext_resource type="Texture2D" uid="uid://pa6avdfyhbnb" path="res://Sprites/Costillas.png" id="1_4ib2e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1j3j5"]
+radius = 15.0
+height = 55.0
+
+[node name="Node2D" type="Node2D" unique_id=175903414]
+script = ExtResource("1_1j3j5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=873670992]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=512513761]
+texture = ExtResource("1_4ib2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1009781061]
+position = Vector2(0.5, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1j3j5")
+
+[node name="TimerHerido" type="Timer" parent="." unique_id=667109982]
+wait_time = 0.05
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="timeout" from="TimerHerido" to="." method="_on_timer_herido_timeout"]
