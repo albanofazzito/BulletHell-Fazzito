@@ -5,6 +5,8 @@ var direccion=Vector2.ZERO
 var velocidad=200
 func inicializar(dir):
 	direccion=dir
+	if dir.x>0:
+		$Area2D/AnimatedSprite2D.flip_h=true
 	
 func _process(delta: float) -> void:
 	position+=delta*velocidad*direccion

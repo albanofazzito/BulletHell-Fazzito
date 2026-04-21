@@ -14,7 +14,7 @@ position = Vector2(576, 324)
 texture = ExtResource("1_x6ikd")
 
 [node name="Node2D" parent="." unique_id=1651068310 instance=ExtResource("2_ekji2")]
-position = Vector2(532, 198)
+position = Vector2(593, 412)
 
 [node name="Node2D2" parent="." unique_id=1382486658 instance=ExtResource("4_sklaq")]
 position = Vector2(-5, 1)
@@ -40,6 +40,7 @@ visible = false
 position = Vector2(873, 438)
 
 [node name="TimerMeteoritos" type="Timer" parent="." unique_id=192182662]
+wait_time = 0.2
 
 [connection signal="timeout" from="TimerMensajes" to="." method="_on_timer_mensajes_timeout"]
 [connection signal="timeout" from="TimerMeteoritos" to="." method="_on_timer_meteoritos_timeout"]

@@ -17,6 +17,43 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbjfh"]
 normal = Vector2(0, 1)
 
+[sub_resource type="Animation" id="Animation_a5pd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q5ubt"]
+resource_name = "fadeIn"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.4000001, 1.1, 2.0666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbjfh"]
+_data = {
+&"RESET": SubResource("Animation_a5pd0"),
+&"fadeIn": SubResource("Animation_q5ubt")
+}
+
 [node name="Node2D" type="Node2D" unique_id=1919910432]
 
 [node name="Arena" type="Sprite2D" parent="." unique_id=1363459211]
@@ -57,3 +94,15 @@ shape = SubResource("WorldBoundaryShape2D_q5ubt")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=2140750516]
 position = Vector2(575, -2)
 shape = SubResource("WorldBoundaryShape2D_pbjfh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1648550104]
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer" unique_id=1340310724]
+modulate = Color(0, 0, 0, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1263047942]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_pbjfh")
+autoplay = &"fadeIn"

@@ -82,7 +82,7 @@ func _on_timer_disparo_arriba_timeout() -> void:
 		espina.inicializar(1,$EspinaSuperior,0.8)
 	$EspinaSuperior.visible=false
 	$ReponerEspinaArriba.start(1)
-	$TimerDisparoAbajo.start(randf_range(3,6))
+	$TimerDisparoArriba.start(randf_range(3,6))
 
 func _on_timer_disparo_abajo_timeout() -> void:
 	var espina=escenaEspina.instantiate()
@@ -97,7 +97,7 @@ func _on_timer_disparo_abajo_timeout() -> void:
 		espina.inicializar(1,$EspinaInferior,0.8)
 	$EspinaInferior.visible=false
 	$ReponerEspinaAbajo.start(1)
-	$TimerDisparoArriba.start(randf_range(2,4))
+	$TimerDisparoAbajo.start(randf_range(2,4))
 
 
 func _on_reponer_espina_medio_timeout() -> void:

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cqerlebyoukx3"]
+
+[ext_resource type="Script" uid="uid://t6i685bwdk2u" path="res://Scripts/seleccion_niveles.gd" id="1_f4dyt"]
+[ext_resource type="Texture2D" uid="uid://cawk2pkhs7h8g" path="res://Sprites/fondoNiveles.png" id="1_n2hgb"]
+[ext_resource type="Texture2D" uid="uid://dhdkc16v5sr72" path="res://Sprites/Tutorial.png" id="3_5itxk"]
+[ext_resource type="Texture2D" uid="uid://c4sqo1udv4l7y" path="res://Sprites/Nivel1.png" id="4_s3ei3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5itxk"]
+
+[node name="Control" type="Control" unique_id=1583437291]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4dyt")
+
+[node name="FondoNiveles" type="Sprite2D" parent="." unique_id=1781887487]
+position = Vector2(576.00006, 324)
+scale = Vector2(18, 18)
+texture = ExtResource("1_n2hgb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=658614361]
+layout_mode = 0
+offset_left = 29.400003
+offset_top = 183.0
+offset_right = 944.06665
+offset_bottom = 476.0
+scale = Vector2(1.2, 1)
+theme_override_constants/separation = 16
+
+[node name="Tutorial" type="TextureRect" parent="HBoxContainer" unique_id=911736688]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_5itxk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Nivel1" type="TextureRect" parent="HBoxContainer" unique_id=2100346064]
+layout_mode = 2
+texture = ExtResource("4_s3ei3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Nivel2" type="TextureRect" parent="HBoxContainer" unique_id=1389566820]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_5itxk")
+expand_mode = 2
+stretch_mode = 5

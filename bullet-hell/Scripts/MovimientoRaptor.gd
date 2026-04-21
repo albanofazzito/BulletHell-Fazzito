@@ -69,7 +69,6 @@ func disparar(direccion):
 		disparo.iniciar(dir)
 		get_parent().add_child(disparo)
 		disparo.global_position= global_position
-
 		$cooldown.start()
 		disparando=false
 

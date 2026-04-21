@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cl786ejdx2j6q"]
+
+[ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_b6a0o"]
+
+[node name="Control" type="Control" unique_id=2103458118]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arena" type="Sprite2D" parent="." unique_id=2060010312]
+position = Vector2(576, 324)
+texture = ExtResource("1_b6a0o")

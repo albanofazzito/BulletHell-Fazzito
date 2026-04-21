@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dwj58j42an6qr"]
+
+[ext_resource type="Texture2D" uid="uid://b8g51vhgt2r6k" path="res://Sprites/RaptorDurmiendo.png" id="1_vj86t"]
+[ext_resource type="Script" uid="uid://cq20mdtlswelr" path="res://Scripts/Loading.gd" id="1_ydeua"]
+[ext_resource type="FontFile" uid="uid://c3d4tbh8adagl" path="res://Fuentes/Minecraft.ttf" id="2_yiwd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiwd6"]
+atlas = ExtResource("1_vj86t")
+region = Rect2(0, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydeua"]
+atlas = ExtResource("1_vj86t")
+region = Rect2(32, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxck6"]
+atlas = ExtResource("1_vj86t")
+region = Rect2(64, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebyci"]
+atlas = ExtResource("1_vj86t")
+region = Rect2(96, 0, 32, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opx8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiwd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydeua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxck6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebyci")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="Animation" id="Animation_vj86t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.74509805, 0.40392157, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nxck6"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ydeua"]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.74509805, 0.40392157, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxck6"]
+_data = {
+&"RESET": SubResource("Animation_vj86t"),
+&"fadeIn": SubResource("Animation_nxck6"),
+&"fadeOut": SubResource("Animation_ydeua")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1319996796]
+script = ExtResource("1_ydeua")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=36374164]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.9999997, 0.7481601, 0.35813943, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=21670852]
+position = Vector2(590, 274)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_opx8x")
+autoplay = "default"
+frame_progress = 0.7733722
+
+[node name="Label" type="Label" parent="." unique_id=1204126389]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = 23.5
+offset_right = 69.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yiwd6")
+theme_override_font_sizes/font_size = 30
+text = "Loading..."
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=959308983]
+modulate = Color(1, 0.74509805, 0.40392157, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1036040722]
+libraries/ = SubResource("AnimationLibrary_nxck6")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

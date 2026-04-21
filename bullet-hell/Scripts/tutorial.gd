@@ -8,6 +8,7 @@ var objetivosRestantes=4
 var CostillasEscena
 var costilla
 var meteoritoEscena
+var meteoritos=0
 func _ready():
 	meteoritoEscena= preload("res://Escenas/Meteorito.tscn")
 	CostillasEscena=preload("res://Escenas/Costillas.tscn")
@@ -33,12 +34,17 @@ func restarObjetivo():
 func iniciarUltimaParte():
 	mensajesIndex+= 1
 	Brachio.inicializar(mensajes[mensajesIndex], 560.0, 160.0)
-	for i in range(50):
-		$TimerMeteoritos.start(0.5)
+
+	for i in range(5):
+		$TimerMeteoritos.start()
 
 
 func _on_timer_meteoritos_timeout() -> void:
-	var meteorito= meteoritoEscena.instantiate()
-	add_child(meteorito)
-	meteorito.global_position= Vector2(randf_range(0,1152),-20)
-	meteorito.inicializar(Vector2.from_angle(randf_range(30,60)))
+	if meteoritos<75:
+		var meteorito= meteoritoEscena.instantiate()
+		add_child(meteorito)
+		meteorito.global_position= Vector2(randf_range(0,1152),-10)
+		meteorito.inicializar(Vector2.from_angle(90))
+		meteoritos+=1
+	else:
+		$TimerMeteoritos.stop()
