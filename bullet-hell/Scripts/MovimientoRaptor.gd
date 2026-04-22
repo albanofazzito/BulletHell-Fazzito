@@ -5,6 +5,8 @@ var velocidad= 200.0
 var invencible=false
 var escenaDisparo= preload("res://Escenas/DisparoRaptor.tscn")
 var disparando=true
+var muerto=false
+signal murio
 
 func _physics_process(delta):
 	if AutoLoad.vidas>0:
@@ -31,6 +33,11 @@ func _physics_process(delta):
 		if Input.is_action_pressed("disparar"):
 			disparar(direccion)
 		move_and_slide()
+	else:
+		if !muerto:
+			muerto=true
+			emit_signal("murio")
+	
 
 
 

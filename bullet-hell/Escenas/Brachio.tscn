@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c52tip2wdokxy" path="res://Scripts/TextoBrachio.gd" id="1_t5pya"]
 [ext_resource type="Texture2D" uid="uid://dxno5gpfcr1dk" path="res://Sprites/brachio.png" id="2_06c01"]
+[ext_resource type="AudioStream" uid="uid://bxhmcpok8mtm7" path="res://Audio/BrachioSFX.mp3" id="3_bct10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0i3"]
 atlas = ExtResource("2_06c01")
@@ -95,5 +96,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="TimerEscritura" type="Timer" parent="." unique_id=391512677]
+wait_time = 0.05
+
+[node name="BrachioSfx" type="AudioStreamPlayer" parent="." unique_id=34037593]
+stream = ExtResource("3_bct10")
+volume_db = -15.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="TimerEscritura" to="." method="_on_timer_escritura_timeout"]

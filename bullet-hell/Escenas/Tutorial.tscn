@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="2_ekji2"]
 [ext_resource type="PackedScene" uid="uid://cmam2ia5md40v" path="res://Escenas/BordePalmeras.tscn" id="4_sklaq"]
 [ext_resource type="PackedScene" uid="uid://mibyl0w85t6r" path="res://Escenas/Costillas.tscn" id="5_v10s8"]
+[ext_resource type="AudioStream" uid="uid://bntdx02ocpxir" path="res://Audio/tutorial.mp3" id="6_hqkeo"]
 
 [node name="Node2D" type="Node2D" unique_id=474134944 groups=["Tutorial"]]
 script = ExtResource("1_sklaq")
@@ -42,5 +43,14 @@ position = Vector2(873, 438)
 [node name="TimerMeteoritos" type="Timer" parent="." unique_id=192182662]
 wait_time = 0.2
 
+[node name="TimerUltimosMensajes" type="Timer" parent="." unique_id=177131561]
+wait_time = 5.0
+
+[node name="Tutorial" type="AudioStreamPlayer" parent="." unique_id=1260952851]
+stream = ExtResource("6_hqkeo")
+volume_db = -10.0
+autoplay = true
+
 [connection signal="timeout" from="TimerMensajes" to="." method="_on_timer_mensajes_timeout"]
 [connection signal="timeout" from="TimerMeteoritos" to="." method="_on_timer_meteoritos_timeout"]
+[connection signal="timeout" from="TimerUltimosMensajes" to="." method="_on_timer_ultimos_mensajes_timeout"]

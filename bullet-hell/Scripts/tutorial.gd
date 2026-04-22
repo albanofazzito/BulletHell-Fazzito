@@ -1,7 +1,7 @@
 extends Node2D
 
 var BrachioEscena
-var mensajes=["Usa WASD para moverte","Presiona Espacio, K o L para disparar", "Evita los proyectiles enemigos"]
+var mensajes=["Usa WASD para moverte","Presiona Espacio, K o L para disparar", "Evita los proyectiles enemigos","Estas listo","Por cierto, viendo a tu siguiente obstaculo","Recomiendo que no apuntes a su cabeza","Su cuerpo es mas debil y recibe mas daño"]
 var mensajesIndex=0
 var Brachio
 var objetivosRestantes=4
@@ -9,6 +9,7 @@ var CostillasEscena
 var costilla
 var meteoritoEscena
 var meteoritos=0
+var letraIndex=0
 func _ready():
 	meteoritoEscena= preload("res://Escenas/Meteorito.tscn")
 	CostillasEscena=preload("res://Escenas/Costillas.tscn")
@@ -48,3 +49,17 @@ func _on_timer_meteoritos_timeout() -> void:
 		meteoritos+=1
 	else:
 		$TimerMeteoritos.stop()
+		$TimerUltimosMensajes.start()
+
+
+
+
+func _on_timer_ultimos_mensajes_timeout():
+	if mensajesIndex!=6:
+		$Tutorial.volume_db=-20
+		mensajesIndex+= 1
+		Brachio.inicializar(mensajes[mensajesIndex], 560.0, 160.0)
+	else:
+		$TimerUltimosMensajes.stop()
+		Loading.cambiar_escena("res://Escenas/Juego.tscn")
+	
