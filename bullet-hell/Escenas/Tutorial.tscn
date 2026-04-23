@@ -44,7 +44,7 @@ position = Vector2(873, 438)
 wait_time = 0.2
 
 [node name="TimerUltimosMensajes" type="Timer" parent="." unique_id=177131561]
-wait_time = 3.0
+wait_time = 4.0
 
 [node name="Tutorial" type="AudioStreamPlayer" parent="." unique_id=1260952851]
 stream = ExtResource("6_hqkeo")

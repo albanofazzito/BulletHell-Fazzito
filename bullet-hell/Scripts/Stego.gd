@@ -1,9 +1,11 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
-var vida=50
+var vida=10
 var muerto=false
+var Nivel1
 
+	
 func _ready():
 	_on_animated_sprite_2d_frame_changed()
 	$TimerDisparoArriba.start(randf_range(2,4))
@@ -51,11 +53,14 @@ func _on_area_2d_body_entered(body):
 
 func morir():
 	if muerto==false:
+		$Area2D.collision_layer = 0
+		$Area2D.collision_mask = 0
 		$StegoMuerte.play()
 		$timerDesaparicion.start()
 		$timerMuerte.start()
 		$GPUParticles2D.emitting=true
 		muerto=true
+		
 		
 		
 		
@@ -175,6 +180,7 @@ func herir():
 
 
 func _on_timer_muerte_timeout():
+	get_parent().restarObjetivo()
 	queue_free()
 
 

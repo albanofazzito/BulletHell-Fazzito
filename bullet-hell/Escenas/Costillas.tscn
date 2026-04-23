@@ -24,5 +24,13 @@ shape = SubResource("CapsuleShape2D_1j3j5")
 [node name="TimerHerido" type="Timer" parent="." unique_id=667109982]
 wait_time = 0.05
 
+[node name="TimerParpadeo" type="Timer" parent="." unique_id=1378830084]
+wait_time = 0.1
+
+[node name="TimerMuerte" type="Timer" parent="." unique_id=1780937579]
+one_shot = true
+
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="timeout" from="TimerHerido" to="." method="_on_timer_herido_timeout"]
+[connection signal="timeout" from="TimerParpadeo" to="." method="_on_timer_parpadeo_timeout"]
+[connection signal="timeout" from="TimerMuerte" to="." method="_on_timer_muerte_timeout"]

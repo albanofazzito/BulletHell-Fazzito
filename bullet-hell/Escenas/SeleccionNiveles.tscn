@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cawk2pkhs7h8g" path="res://Sprites/fondoNiveles.png" id="1_n2hgb"]
 [ext_resource type="Texture2D" uid="uid://dhdkc16v5sr72" path="res://Sprites/Tutorial.png" id="3_5itxk"]
 [ext_resource type="Texture2D" uid="uid://c4sqo1udv4l7y" path="res://Sprites/Nivel1.png" id="4_s3ei3"]
+[ext_resource type="FontFile" uid="uid://c3d4tbh8adagl" path="res://Fuentes/Minecraft.ttf" id="5_s3ei3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5itxk"]
 
@@ -48,3 +49,23 @@ layout_mode = 2
 texture = SubResource("PlaceholderTexture2D_5itxk")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1103012584]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 213.0
+offset_right = 245.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("5_s3ei3")
+theme_override_font_sizes/font_size = 20
+text = "Tutorial"
+
+[node name="Label2" type="Label" parent="." unique_id=2128597771]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 213.0
+offset_right = 611.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("5_s3ei3")
+theme_override_font_sizes/font_size = 20
+text = "Nivel 1"

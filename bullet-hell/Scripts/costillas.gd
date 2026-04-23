@@ -13,11 +13,22 @@ func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 		$Area2D/Sprite2D.modulate= Color(1,0,0)
 		$TimerHerido.start()
 		if vida<=0:
-			queue_free()
-			tutorial.restarObjetivo()
-			
+			$Area2D.collision_layer = 0
+			$Area2D.collision_mask = 0
+			$TimerParpadeo.start()
+			$TimerMuerte.start()
 
 
 
 func _on_timer_herido_timeout() -> void:
 	$Area2D/Sprite2D.modulate= Color(1,1,1)
+
+
+func _on_timer_parpadeo_timeout():
+	$Area2D/Sprite2D.visible= !$Area2D/Sprite2D.visible
+	$TimerParpadeo.start()
+
+
+func _on_timer_muerte_timeout():
+	queue_free()
+	tutorial.restarObjetivo()
