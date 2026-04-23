@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://be4byc0to1idl"]
+
+[ext_resource type="Script" uid="uid://bp4085h3ixsyu" path="res://Scripts/BotonVolver.gd" id="1_lih8v"]
+[ext_resource type="Texture2D" uid="uid://ckcf7jy2ewuis" path="res://Sprites/botonVolver/VolverHoverN.png" id="2_htsow"]
+[ext_resource type="Texture2D" uid="uid://c3lbd0llv6rtn" path="res://Sprites/botonVolver/VolverPressed.png" id="3_gq8o5"]
+[ext_resource type="Texture2D" uid="uid://2n23cti0jafu" path="res://Sprites/botonVolver/VolverNormal.png" id="4_a05cx"]
+
+[node name="TextureButton" type="TextureButton" unique_id=1169515813]
+process_mode = 3
+offset_right = 74.0
+offset_bottom = 22.0
+texture_normal = ExtResource("2_htsow")
+texture_pressed = ExtResource("3_gq8o5")
+texture_hover = ExtResource("4_a05cx")
+script = ExtResource("1_lih8v")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

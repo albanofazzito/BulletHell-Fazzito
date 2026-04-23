@@ -51,13 +51,14 @@ func recibirDaño():
 		$Timer.start()
 		$AnimatedSprite2D.visible=true
 		if AutoLoad.vidas==0:
-			$AnimatedSprite2D2.visible=true
 			$AnimatedSprite2D.visible=false
-			$AnimatedSprite2D2.play()
+
 
 
 func _on_timer_timeout():
 	invencible=false
+	if AutoLoad.vidas!=0:
+		$AnimatedSprite2D.visible=true
 
 func disparar(direccion):
 	if disparando==true:
@@ -85,8 +86,7 @@ func _on_timer_parpadeo_timeout():
 		$TimerParpadeo.start()
 
 
-func _on_animated_sprite_2d_2_animation_finished():
-	$AnimatedSprite2D2.pause()
+
 
 
 func _on_cooldown_timeout():

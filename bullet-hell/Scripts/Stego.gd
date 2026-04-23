@@ -1,7 +1,7 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
-var vida=100
+var vida=50
 var muerto=false
 
 func _ready():
@@ -50,8 +50,16 @@ func _on_area_2d_body_entered(body):
 		body.recibirDaño()
 
 func morir():
-	muerto=true
-	queue_free()
+	if muerto==false:
+		$StegoMuerte.play()
+		$timerDesaparicion.start()
+		$timerMuerte.start()
+		$GPUParticles2D.emitting=true
+		muerto=true
+		
+		
+		
+	
 
 
 func _on_timer_disparo_medio_timeout() -> void:
@@ -164,3 +172,17 @@ func herir():
 	$EspinaInferior.modulate= Color(1,0,0)
 	$EspinaMedio.modulate= Color(1,0,0)
 	$Espinillas.modulate= Color(1,0,0)
+
+
+func _on_timer_muerte_timeout():
+	queue_free()
+
+
+func _on_timer_desaparicion_timeout():
+	if muerto:
+		$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+		$EspinaSuperior.visible=!$EspinaSuperior.visible
+		$EspinaMedio.visible= !$EspinaMedio.visible
+		$EspinaInferior.visible=!$EspinaInferior.visible
+		$Espinillas.visible=!$Espinillas.visible
+		$timerDesaparicion.start()
