@@ -45,7 +45,7 @@ func _on_timer_meteoritos_timeout() -> void:
 		var meteorito= meteoritoEscena.instantiate()
 		add_child(meteorito)
 		meteorito.global_position= Vector2(randf_range(0,1152),-10)
-		meteorito.inicializar(Vector2.from_angle(90))
+		meteorito.inicializar(Vector2.from_angle(90),1,-1)
 		meteoritos+=1
 	else:
 		$TimerMeteoritos.stop()

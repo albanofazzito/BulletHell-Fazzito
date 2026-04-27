@@ -3,10 +3,14 @@ extends Node2D
 
 var direccion=Vector2.ZERO
 var velocidad=200
-func inicializar(dir):
+func inicializar(dir,escala,lugar):
 	direccion=dir
-	if dir.x>0:
+	scale.x=escala
+	scale.y=escala
+	if lugar==1:
 		$Area2D/AnimatedSprite2D.flip_h=true
+	else:
+		$Area2D/AnimatedSprite2D.flip_h=false
 	
 func _process(delta: float) -> void:
 	position+=delta*velocidad*direccion

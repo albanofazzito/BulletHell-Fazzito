@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://drk6lvgvqs0ef"]
+[gd_scene format=3 uid="uid://c350lwaevrbts"]
 
-[node name="Node2D" type="Node2D" unique_id=2093247964]
+[ext_resource type="Script" uid="uid://dkmxdinr6g80t" path="res://Scripts/nivel_2.gd" id="1_33x1p"]
+[ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_n64oi"]
+
+[node name="Node2D" type="Node2D" unique_id=368828734]
+script = ExtResource("1_33x1p")
+
+[node name="Arena" type="Sprite2D" parent="." unique_id=2032577741]
+texture = ExtResource("1_n64oi")
+centered = false
+
+[node name="TimerPterodactilos" type="Timer" parent="." unique_id=1311998467]
+wait_time = 0.7
+
+[connection signal="timeout" from="TimerPterodactilos" to="." method="_on_timer_pterodactilos_timeout"]

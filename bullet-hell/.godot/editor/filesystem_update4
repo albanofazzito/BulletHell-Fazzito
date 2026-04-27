@@ -1,0 +1,16 @@
+res://Escenas/Brachio.tscn
+res://Escenas/Costillas.tscn
+res://Scripts/AutoLoad.gd
+res://Scripts/BotonOpciones.gd
+res://Scripts/boton_jugar.gd
+res://Scripts/costillas.gd
+res://Scripts/meteorito.gd
+res://Scripts/MovimientoRaptor.gd
+res://Scripts/Stego.gd
+res://Scripts/TextoBrachio.gd
+res://Scripts/tutorial.gd
+res://Escenas/botonVolver.tscn
+res://Scripts/Pterodactilo.gd
+res://Escenas/Nivel2.tscn
+res://Scripts/nivel_2.gd
+res://Escenas/Pterodactilo.tscn
