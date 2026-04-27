@@ -1,12 +1,11 @@
-[gd_scene format=3 uid="uid://cqerlebyoukx3"]
+[gd_scene format=3 uid="uid://f27kobtndbny"]
 
-[ext_resource type="Script" uid="uid://t6i685bwdk2u" path="res://Scripts/seleccion_niveles.gd" id="1_f4dyt"]
+[ext_resource type="Script" path="res://Scripts/seleccion_niveles.gd" id="1_f4dyt"]
 [ext_resource type="Texture2D" uid="uid://cawk2pkhs7h8g" path="res://Sprites/fondoNiveles.png" id="1_n2hgb"]
 [ext_resource type="Texture2D" uid="uid://dhdkc16v5sr72" path="res://Sprites/Tutorial.png" id="3_5itxk"]
 [ext_resource type="Texture2D" uid="uid://c4sqo1udv4l7y" path="res://Sprites/Nivel1.png" id="4_s3ei3"]
+[ext_resource type="Texture2D" uid="uid://c8wnuckbb4hi4" path="res://Sprites/nivel2.png" id="5_hlnta"]
 [ext_resource type="FontFile" uid="uid://c3d4tbh8adagl" path="res://Fuentes/Minecraft.ttf" id="5_s3ei3"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5itxk"]
 
 [node name="Control" type="Control" unique_id=1583437291]
 layout_mode = 3
@@ -46,7 +45,7 @@ stretch_mode = 5
 
 [node name="Nivel2" type="TextureRect" parent="HBoxContainer" unique_id=1389566820]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_5itxk")
+texture = ExtResource("5_hlnta")
 expand_mode = 2
 stretch_mode = 5
 
@@ -69,3 +68,13 @@ offset_bottom = 236.0
 theme_override_fonts/font = ExtResource("5_s3ei3")
 theme_override_font_sizes/font_size = 20
 text = "Nivel 1"
+
+[node name="Label3" type="Label" parent="." unique_id=1749725800]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 213.0
+offset_right = 981.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("5_s3ei3")
+theme_override_font_sizes/font_size = 20
+text = "Nivel 2"

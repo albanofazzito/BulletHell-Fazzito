@@ -22,4 +22,6 @@ func _input(event):
 			Loading.cambiar_escena("res://Escenas/Tutorial.tscn")
 		elif nivelesIndex==1:
 			Loading.cambiar_escena("res://Escenas/Juego.tscn")
+		else:
+			Loading.cambiar_escena("res://Escenas/Nivel2.tscn")
 		

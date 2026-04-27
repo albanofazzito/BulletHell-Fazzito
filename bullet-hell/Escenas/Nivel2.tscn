@@ -20,7 +20,7 @@ centered = false
 wait_time = 0.7
 
 [node name="Node2D" parent="." unique_id=710992004 instance=ExtResource("3_6wegy")]
-position = Vector2(187, 583.00006)
+position = Vector2(542, 583)
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=367419887]
 
@@ -45,5 +45,7 @@ shape = SubResource("WorldBoundaryShape2D_anv1u")
 
 [node name="Node2D2" parent="." unique_id=1651068310 instance=ExtResource("4_dwoff")]
 position = Vector2(509, 102)
+
+[node name="TimerDisparos" type="Timer" parent="." unique_id=361782033]
 
 [connection signal="timeout" from="TimerPterodactilos" to="." method="_on_timer_pterodactilos_timeout"]

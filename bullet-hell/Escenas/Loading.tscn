@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dwj58j42an6qr"]
+[gd_scene format=3 uid="uid://cx7v5h3t2thn8"]
 
 [ext_resource type="Texture2D" uid="uid://b8g51vhgt2r6k" path="res://Sprites/RaptorDurmiendo.png" id="1_vj86t"]
-[ext_resource type="Script" uid="uid://x0vi7fkmnibq" path="res://Scripts/Loading.gd" id="1_ydeua"]
+[ext_resource type="Script" path="res://Scripts/Loading.gd" id="1_ydeua"]
 [ext_resource type="FontFile" uid="uid://c3d4tbh8adagl" path="res://Fuentes/Minecraft.ttf" id="2_yiwd6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yiwd6"]

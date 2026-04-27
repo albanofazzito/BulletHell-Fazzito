@@ -1,7 +1,7 @@
 extends Node2D
 var escenaEspina= preload("res://Escenas/Espina.tscn")
 var escenaEspinaDirigida= preload("res://Escenas/espinaDirigida.tscn")
-var vida=10
+var vida=100
 var muerto=false
 var Nivel1
 

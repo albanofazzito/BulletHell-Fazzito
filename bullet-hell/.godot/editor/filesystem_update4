@@ -1,3 +1,8 @@
+res://Scripts/mosasaurio.gd
 res://Escenas/Nivel2.tscn
 res://Escenas/mosasaurio.tscn
-res://Scripts/mosasaurio.gd
+res://Scripts/disparo_mosa.gd
+res://Escenas/DisparoMosa.tscn
+res://Scripts/Stego.gd
+res://Escenas/SeleccionNiveles.tscn
+res://Scripts/seleccion_niveles.gd

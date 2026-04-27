@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cm4lvylg82ghu"]
+
+[ext_resource type="Script" uid="uid://j7p7yuvgwksj" path="res://Scripts/disparo_mosa.gd" id="1_by2sg"]
+[ext_resource type="Texture2D" uid="uid://diflvtvj8wi0" path="res://Sprites/ProyectilMosa.png" id="2_s63ho"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sv6gg"]
+radius = 5.0
+height = 22.0
+
+[node name="Node2D" type="Node2D" unique_id=414569287]
+scale = Vector2(3, 3)
+script = ExtResource("1_by2sg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1854428222]
+
+[node name="ProyectilMosa" type="Sprite2D" parent="Area2D" unique_id=737715357]
+texture = ExtResource("2_s63ho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1233744582]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_sv6gg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
