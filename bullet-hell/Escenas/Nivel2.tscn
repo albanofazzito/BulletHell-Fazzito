@@ -1,16 +1,49 @@
 [gd_scene format=3 uid="uid://c350lwaevrbts"]
 
 [ext_resource type="Script" uid="uid://dkmxdinr6g80t" path="res://Scripts/nivel_2.gd" id="1_33x1p"]
-[ext_resource type="Texture2D" uid="uid://br2bfnushcu3k" path="res://Sprites/arena.png" id="1_n64oi"]
+[ext_resource type="Texture2D" uid="uid://bpo2o4poso54c" path="res://Sprites/fondoNivel2.png" id="2_n64oi"]
+[ext_resource type="PackedScene" uid="uid://cyggilgae743h" path="res://Escenas/mosasaurio.tscn" id="3_6wegy"]
+[ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="4_dwoff"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_anv1u"]
+normal = Vector2(1, 0)
 
 [node name="Node2D" type="Node2D" unique_id=368828734]
 script = ExtResource("1_33x1p")
 
-[node name="Arena" type="Sprite2D" parent="." unique_id=2032577741]
-texture = ExtResource("1_n64oi")
+[node name="FondoNivel2" type="Sprite2D" parent="." unique_id=240353078]
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("2_n64oi")
 centered = false
 
 [node name="TimerPterodactilos" type="Timer" parent="." unique_id=1311998467]
 wait_time = 0.7
+
+[node name="Node2D" parent="." unique_id=710992004 instance=ExtResource("3_6wegy")]
+position = Vector2(187, 583.00006)
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=367419887]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=656648702]
+position = Vector2(3, 296)
+shape = SubResource("WorldBoundaryShape2D_anv1u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=614915261]
+position = Vector2(1149, 296)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_anv1u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1506410145]
+position = Vector2(551, 550)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_anv1u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1079633441]
+position = Vector2(569, 4)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_anv1u")
+
+[node name="Node2D2" parent="." unique_id=1651068310 instance=ExtResource("4_dwoff")]
+position = Vector2(509, 102)
 
 [connection signal="timeout" from="TimerPterodactilos" to="." method="_on_timer_pterodactilos_timeout"]

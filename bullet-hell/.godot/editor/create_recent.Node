@@ -1,7 +1,8 @@
-Timer
-CollisionShape2D
+StaticBody2D
 Area2D
+CollisionShape2D
 AnimatedSprite2D
+Timer
 Label
 TextureRect
 HSlider
