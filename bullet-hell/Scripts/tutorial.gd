@@ -11,6 +11,7 @@ var meteoritoEscena
 var meteoritos=0
 var letraIndex=0
 func _ready():
+	$Node2D/CharacterBody2D.murio.connect(_on_raptor_murio)
 	meteoritoEscena= preload("res://Escenas/Meteorito.tscn")
 	CostillasEscena=preload("res://Escenas/Costillas.tscn")
 	BrachioEscena=preload("res://Escenas/Brachio.tscn")
@@ -64,3 +65,11 @@ func _on_timer_ultimos_mensajes_timeout():
 		Loading.cambiar_escena("res://Escenas/SeleccionNiveles.tscn")
 		AutoLoad.vidas=3
 	
+func _on_raptor_murio():
+	var pos_pantalla= $Node2D/CharacterBody2D.get_global_transform_with_canvas().origin
+	$Node2D/CharacterBody2D/AnimatedSprite2D2.visible=true
+	$Node2D/CharacterBody2D/AnimatedSprite2D2.play()
+	$Node2D/CharacterBody2D/ColorRect.visible=true
+	$Node2D/CharacterBody2D/AnimationPlayer.play("muerte")
+	$Node2D/CharacterBody2D/ColorRect2.visible=true
+	get_tree().paused=true
