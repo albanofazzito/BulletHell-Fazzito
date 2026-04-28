@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://fcyj86qn7iqk" path="res://Audio/MusicaMenu.mp3" id="4_shwl5"]
 [ext_resource type="Texture2D" uid="uid://ddgaafh7rssdh" path="res://Sprites/Cartel.png" id="5_gdyll"]
 [ext_resource type="Texture2D" uid="uid://dxno5gpfcr1dk" path="res://Sprites/brachio.png" id="7_vmlkd"]
+[ext_resource type="Texture2D" uid="uid://d14wba72jcyqc" path="res://Sprites/StegoSaurio/stegoFosil.png" id="8_vmlkd"]
+[ext_resource type="Texture2D" uid="uid://h34i35mbxg4m" path="res://Sprites/mosaFosil.png" id="9_1dxjv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qwxx"]
 atlas = ExtResource("5_gdyll")
@@ -118,6 +120,7 @@ scale = Vector2(0.8, 0.8)
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="." unique_id=476583740]
 stream = ExtResource("4_shwl5")
 autoplay = true
+bus = &"Musica"
 parameters/looping = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1581526934]
@@ -132,3 +135,26 @@ visible = false
 position = Vector2(185.00002, 332)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2rgou")
+autoplay = "default"
+
+[node name="StegoFosil" type="Sprite2D" parent="." unique_id=2014647813]
+visible = false
+modulate = Color(1, 1, 1, 0.5058824)
+position = Vector2(1040, 536)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_vmlkd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=312084196]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 605.0
+offset_right = 1075.0
+offset_bottom = 610.0
+color = Color(0.1882353, 0.105882354, 0.08235294, 1)
+
+[node name="MosaFosil" type="Sprite2D" parent="." unique_id=8782964]
+visible = false
+modulate = Color(1, 1, 1, 0.5411765)
+position = Vector2(201, 534)
+scale = Vector2(6, 6)
+texture = ExtResource("9_1dxjv")

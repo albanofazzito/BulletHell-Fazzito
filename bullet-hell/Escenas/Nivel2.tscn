@@ -4,9 +4,93 @@
 [ext_resource type="Texture2D" uid="uid://bpo2o4poso54c" path="res://Sprites/fondoNivel2.png" id="2_n64oi"]
 [ext_resource type="PackedScene" uid="uid://cyggilgae743h" path="res://Escenas/mosasaurio.tscn" id="3_6wegy"]
 [ext_resource type="PackedScene" uid="uid://cd88up2tfxlht" path="res://Escenas/Raptor.tscn" id="4_dwoff"]
+[ext_resource type="FontFile" uid="uid://c3d4tbh8adagl" path="res://Fuentes/Minecraft.ttf" id="5_dwoff"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_anv1u"]
 normal = Vector2(1, 0)
+
+[sub_resource type="Animation" id="Animation_a5pd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_fl6nd"]
+resource_name = "Ready? Wallop!"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.98, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q5ubt"]
+resource_name = "fadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.4000001, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pbjfh"]
+resource_name = "fadeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anv1u"]
+_data = {
+&"RESET": SubResource("Animation_a5pd0"),
+&"Ready? Wallop!": SubResource("Animation_fl6nd"),
+&"fadeIn": SubResource("Animation_q5ubt"),
+&"fadeout": SubResource("Animation_pbjfh")
+}
 
 [node name="Node2D" type="Node2D" unique_id=368828734]
 script = ExtResource("1_33x1p")
@@ -51,5 +135,42 @@ position = Vector2(509, 102)
 [node name="TimerVictoria" type="Timer" parent="." unique_id=375084022]
 wait_time = 2.9
 
+[node name="TimerEscritura" type="Timer" parent="." unique_id=222229419]
+process_mode = 3
+wait_time = 0.03
+one_shot = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1717328348]
+process_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2023480749]
+process_mode = 3
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer" unique_id=913120109]
+process_mode = 3
+modulate = Color(0, 0, 0, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1705374667]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("5_dwoff")
+theme_override_font_sizes/font_size = 150
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1442372016]
+process_mode = 3
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_anv1u")
+autoplay = &"fadeIn"
+
 [connection signal="timeout" from="TimerPterodactilos" to="." method="_on_timer_pterodactilos_timeout"]
 [connection signal="timeout" from="TimerVictoria" to="." method="_on_timer_victoria_timeout"]
+[connection signal="timeout" from="TimerEscritura" to="." method="_on_timer_escritura_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

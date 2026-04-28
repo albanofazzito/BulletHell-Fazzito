@@ -50,6 +50,7 @@ wait_time = 4.0
 stream = ExtResource("6_hqkeo")
 volume_db = -10.0
 autoplay = true
+bus = &"Musica"
 
 [connection signal="timeout" from="TimerMensajes" to="." method="_on_timer_mensajes_timeout"]
 [connection signal="timeout" from="TimerMeteoritos" to="." method="_on_timer_meteoritos_timeout"]

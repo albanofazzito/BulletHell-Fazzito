@@ -3,6 +3,7 @@ extends Node2D
 var stegosRestantes=2
 var letraIndex=0
 func _ready():
+	AutoLoad.vidas=3
 	get_tree().paused=true
 	$Node2D/CharacterBody2D.murio.connect(_on_raptor_murio)
 	print($Node2D/CharacterBody2D/Camera2D.enabled)
@@ -51,12 +52,13 @@ func _on_timer_escritura_timeout():
 
 
 
-
-
 func _on_timer_timeout() -> void:
 	$CanvasLayer/Label.text="Wallop!"
 	$CanvasLayer/AnimationPlayer.play("Ready? Wallop!")
 
 
 func _on_timer_victoria_timeout() -> void:
+	AutoLoad.nivel2Completado=true
 	Loading.cambiar_escena("res://Escenas/SeleccionNiveles.tscn")
+	
+	

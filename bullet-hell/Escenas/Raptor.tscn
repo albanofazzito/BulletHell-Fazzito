@@ -524,6 +524,7 @@ texture = ExtResource("3_jtbm7")
 scale = Vector2(0.33333334, 0.33333334)
 stream = ExtResource("6_000v4")
 volume_db = -3.543
+bus = &"SFX"
 
 [node name="cooldown" type="Timer" parent="CharacterBody2D" unique_id=1718814229]
 wait_time = 0.3
@@ -579,6 +580,7 @@ color = Color(0, 0, 0, 1)
 [node name="GameOver" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=938052575]
 stream = ExtResource("9_qi2ub")
 volume_db = -10.0
+bus = &"Musica"
 
 [node name="ColorRect3" type="ColorRect" parent="CharacterBody2D" unique_id=1569034696]
 visible = false

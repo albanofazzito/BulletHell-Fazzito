@@ -1,7 +1,10 @@
+TextureButton
+VBoxContainer
+Label
+ColorRect
 AnimatedSprite2D
 Timer
 RichTextLabel
-Label
 CenterContainer
 Panel
 CollisionShape2D
@@ -9,6 +12,4 @@ Area2D
 StaticBody2D
 TextureRect
 HSlider
-ColorRect
 GPUParticles2D
-TextureButton

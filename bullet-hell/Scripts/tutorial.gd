@@ -11,6 +11,7 @@ var meteoritoEscena
 var meteoritos=0
 var letraIndex=0
 func _ready():
+	AutoLoad.vidas=3
 	$Node2D/CharacterBody2D.murio.connect(_on_raptor_murio)
 	meteoritoEscena= preload("res://Escenas/Meteorito.tscn")
 	CostillasEscena=preload("res://Escenas/Costillas.tscn")

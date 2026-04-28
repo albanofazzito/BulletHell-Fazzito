@@ -125,6 +125,7 @@ scale = Vector2(-1.7, 1.7)
 stream = ExtResource("4_a5pd0")
 volume_db = -5.525
 autoplay = true
+bus = &"Musica"
 parameters/looping = true
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=2006085664]
@@ -173,7 +174,7 @@ autoplay = &"fadeIn"
 
 [node name="TimerEscritura" type="Timer" parent="." unique_id=1635339472]
 process_mode = 3
-wait_time = 0.030000000000000002
+wait_time = 0.03
 one_shot = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1080041393]

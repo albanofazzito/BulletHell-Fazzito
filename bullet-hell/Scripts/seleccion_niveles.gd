@@ -8,6 +8,8 @@ var nivelesIndex=0
 
 func _ready():
 	niveles = [$HBoxContainer/Panel, $HBoxContainer/Panel2, $HBoxContainer/Panel3]
+	if !AutoLoad.nivel2Desbloqueado:
+		niveles[2].modulate= Color(0.072, 0.072, 0.072, 0.784)
 func _input(event):
 	if event.is_action_pressed("mover_derecha"):
 		nivelesIndex+=1
@@ -18,6 +20,8 @@ func _input(event):
 		nivel.modulate = Color(1, 1, 1, 1) 
 		nivel.scale=Vector2(0.8,0.8)
 		nivel.pivot_offset= nivel.size/ 2
+		if !AutoLoad.nivel2Desbloqueado:
+			niveles[2].modulate= Color(0.072, 0.072, 0.072, 0.784)
 	niveles[nivelesIndex].modulate= Color(0.387, 0.384, 0.334, 1.0)
 	niveles[nivelesIndex].scale=Vector2(1.2,1.2)
 	niveles[nivelesIndex].pivot_offset= niveles[nivelesIndex].size/2
@@ -27,5 +31,6 @@ func _input(event):
 		elif nivelesIndex==1:
 			Loading.cambiar_escena("res://Escenas/Nivel2.tscn")
 		else:
-			Loading.cambiar_escena("res://Escenas/Juego.tscn")
+			if AutoLoad.nivel2Desbloqueado:
+				Loading.cambiar_escena("res://Escenas/Juego.tscn")
 		
