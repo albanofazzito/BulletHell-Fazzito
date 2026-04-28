@@ -1,8 +1,9 @@
 extends Node2D
 
 var stegosRestantes=2
-
+var letraIndex=0
 func _ready():
+	get_tree().paused=true
 	$Node2D/CharacterBody2D.murio.connect(_on_raptor_murio)
 	print($Node2D/CharacterBody2D/Camera2D.enabled)
 
@@ -27,10 +28,35 @@ func restarObjetivo():
 
 
 func mostrarVictoria():
-	$CanvasLayer/AnimationPlayer.play("fadeout")
+	$Node2D/CharacterBody2D/AnimationPlayer.play("fadeOut")
+	$TimerVictoria.start()
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name=="fadeout":
-		Loading.cambiar_escena("res://Escenas/SeleccionNiveles.tscn")
-		
+	if anim_name=="fadeIn":
+		$CanvasLayer/Label.visible=true
+		$TimerEscritura.start()
+	if anim_name=="Ready? Wallop!":
+		$CanvasLayer/Label.visible=false
+		get_tree().paused=false
+		$CanvasLayer/AnimationPlayer.stop()
+
+func _on_timer_escritura_timeout():
+	$CanvasLayer/Label.text = "Ready?".substr(0, letraIndex)
+	letraIndex+=1
+	if letraIndex>= "Ready?".length()+1:
+		$Timer.start()
+	else:
+		$TimerEscritura.start()
+
+
+
+
+
+func _on_timer_timeout() -> void:
+	$CanvasLayer/Label.text="Wallop!"
+	$CanvasLayer/AnimationPlayer.play("Ready? Wallop!")
+
+
+func _on_timer_victoria_timeout() -> void:
+	Loading.cambiar_escena("res://Escenas/SeleccionNiveles.tscn")

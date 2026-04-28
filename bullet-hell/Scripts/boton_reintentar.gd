@@ -9,5 +9,5 @@ func _input(event):
 func _on_pressed():
 	AutoLoad.vidas=4
 	get_tree().paused= false
-	Loading.cambiar_escena("res://Escenas/Juego.tscn")
+	Loading.cambiar_escena(get_tree().current_scene.scene_file_path)
 	

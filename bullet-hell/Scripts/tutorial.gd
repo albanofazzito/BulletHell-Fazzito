@@ -62,6 +62,7 @@ func _on_timer_ultimos_mensajes_timeout():
 		Brachio.inicializar(mensajes[mensajesIndex], 560.0, 160.0)
 	else:
 		$TimerUltimosMensajes.stop()
+		AutoLoad.tutorialCompletado=true
 		Loading.cambiar_escena("res://Escenas/SeleccionNiveles.tscn")
 		AutoLoad.vidas=3
 	

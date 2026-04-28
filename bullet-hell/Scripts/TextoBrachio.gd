@@ -20,5 +20,4 @@ func _on_timer_escritura_timeout():
 	$Node2D/Panel/Label.text = textoActual.substr(0, letraIndex)
 	if letraIndex<=textoActual.length():
 		$BrachioSfx.play()
-	
 	letraIndex+=1

@@ -3,7 +3,9 @@ extends Node2D
 var velocidad=200
 var direccion
 var proyectilEscena
-var vida=200
+var vida=150	
+var muerto=false
+signal mosaMurio
 
 func _ready():
 	proyectilEscena= preload("res://Escenas/DisparoMosa.tscn")
@@ -14,6 +16,19 @@ func _process(delta: float) -> void:
 	position.x+=delta*velocidad*direccion
 	if position.x<=110 or position.x>=1042:
 		cambiarDireccion()
+	if vida<=0:
+		emit_signal("mosaMurio")
+		morir()
+
+func morir():
+	if muerto==false:
+		$Area2D.collision_layer = 0
+		$Area2D.collision_mask = 0
+		#$MosaMuerte.play()
+		$TimerDesaparicion.start()
+		$TimerMuerte.start()
+		#$GPUParticles2D.emitting=true
+		muerto=true
 
 func cambiarDireccion():
 	direccion=direccion*-1
@@ -56,9 +71,18 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		vida-=2
 		herir()
 		$TimerHerido.start()
-		
+
+
 func _on_timer_herido_timeout() -> void:
-		$AnimatedSprite2D.modulate= Color(1,1,1)
+	$AnimatedSprite2D.modulate= Color(1,1,1)
 
 func herir():
-	$AnimatedSprite2D.modulate= Color(0.0, 0.631, 0.458, 1.0)
+	$AnimatedSprite2D.modulate= Color(0.973, 0.0, 0.0, 1.0)
+
+func _on_timer_desaparicion_timeout() -> void:
+	if muerto:
+		$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+		$TimerHerido.start()
+		
+func _on_timer_muerte_timeout():
+	queue_free()

@@ -48,4 +48,8 @@ position = Vector2(509, 102)
 
 [node name="TimerDisparos" type="Timer" parent="." unique_id=361782033]
 
+[node name="TimerVictoria" type="Timer" parent="." unique_id=375084022]
+wait_time = 2.9
+
 [connection signal="timeout" from="TimerPterodactilos" to="." method="_on_timer_pterodactilos_timeout"]
+[connection signal="timeout" from="TimerVictoria" to="." method="_on_timer_victoria_timeout"]

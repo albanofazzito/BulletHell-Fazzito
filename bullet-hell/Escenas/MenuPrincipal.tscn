@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bha30e6rfhlor"]
 
 [ext_resource type="Texture2D" uid="uid://blpobhu5o814p" path="res://Sprites/FondoMenuPrincipal.png" id="1_20qv4"]
+[ext_resource type="Script" uid="uid://dw57nqqv02prb" path="res://Scripts/menu_principal.gd" id="1_jmp4w"]
 [ext_resource type="PackedScene" uid="uid://bq4331rcxrje4" path="res://Escenas/BotonJugar.tscn" id="2_iq5l4"]
 [ext_resource type="PackedScene" uid="uid://c0o6xdpp5gfe1" path="res://Escenas/BotonOpciones.tscn" id="3_i4iwo"]
 [ext_resource type="AudioStream" uid="uid://fcyj86qn7iqk" path="res://Audio/MusicaMenu.mp3" id="4_shwl5"]
 [ext_resource type="Texture2D" uid="uid://ddgaafh7rssdh" path="res://Sprites/Cartel.png" id="5_gdyll"]
+[ext_resource type="Texture2D" uid="uid://dxno5gpfcr1dk" path="res://Sprites/brachio.png" id="7_vmlkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qwxx"]
 atlas = ExtResource("5_gdyll")
@@ -42,6 +44,42 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq8l1"]
+atlas = ExtResource("7_vmlkd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84324"]
+atlas = ExtResource("7_vmlkd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n3fc"]
+atlas = ExtResource("7_vmlkd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pskqo"]
+atlas = ExtResource("7_vmlkd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rgou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq8l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84324")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n3fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pskqo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MenuPrincipal" type="Control" unique_id=91487819]
 layout_mode = 3
 anchors_preset = 15
@@ -49,6 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jmp4w")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1139206741]
 layout_mode = 0
@@ -87,3 +126,9 @@ scale = Vector2(4, 2.667)
 sprite_frames = SubResource("SpriteFrames_cq8l1")
 autoplay = "default"
 frame_progress = 0.32205406
+
+[node name="Brachio" type="AnimatedSprite2D" parent="." unique_id=193692111]
+visible = false
+position = Vector2(185.00002, 332)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_2rgou")

@@ -203,6 +203,46 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hbubl"]
+resource_name = "fadeOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_fl6nd"]
 resource_name = "muerte"
@@ -331,6 +371,7 @@ tracks/9/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qi2ub"]
 _data = {
 &"RESET": SubResource("Animation_pbjfh"),
+&"fadeOut": SubResource("Animation_hbubl"),
 &"muerte": SubResource("Animation_fl6nd")
 }
 
@@ -519,7 +560,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="CharacterBody2D" unique_id=1281657922]
 process_mode = 3
-visible = false
 modulate = Color(0, 0, 0, 0)
 z_index = 10
 anchors_preset = 8
